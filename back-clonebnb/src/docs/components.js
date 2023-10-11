@@ -10,8 +10,8 @@ const schemaGetAllStay = {
       example: 'Villa con Vista al Océano',
     },
     descripción: {
-      type: 'Villa lujosa con impresionantes vistas al océano',
-      example: 1,
+      type: 'string',
+      example: 'Villa lujosa con impresionantes vistas al océano',
     },
     precio: {
       type: 'integer',
