@@ -61,6 +61,17 @@ export const getStayByIdDoc = {
   get: {
     tags: ['Stay'],
     description: 'Get stay by id - in progress',
+    parameters: [
+      {
+        name: 'id',
+        in: 'path',
+        schema: {
+          type: 'integer',
+          example: '1',
+        },
+        description: 'Stay id',
+      },
+    ],
   },
 };
 
@@ -68,5 +79,14 @@ export const postStayDoc = {
   post: {
     tags: ['Stay'],
     description: 'Create stay - in progress',
+    requestBody: {
+      content: {
+        'multipart/form-data:': {
+          schema: {
+            $ref: '#/components/schemas/createStay',
+          },
+        },
+      },
+    },
   },
 };

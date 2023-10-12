@@ -51,10 +51,92 @@ const schemaGetAllStay = {
   },
 };
 
+const schemaCreateStay = {
+  type: 'object',
+  properties: {
+    id: {
+      required: true,
+      type: 'integer',
+      example: 1,
+    },
+    título: {
+      required: true,
+      type: 'string',
+      example: 'Villa con Vista al Océano',
+    },
+    descripción: {
+      required: true,
+      type: 'string',
+      example: 'Villa lujosa con impresionantes vistas al océano',
+    },
+    precio: {
+      required: true,
+      type: 'integer',
+      example: 500,
+    },
+    capacidad: {
+      required: true,
+      type: 'integer',
+      example: 8,
+    },
+    imagen_1: {
+      required: true,
+      type: 'string',
+      format: 'binary',
+    },
+    imagen_2: {
+      required: true,
+      type: 'string',
+      format: 'binary',
+    },
+    imagen_3: {
+      required: true,
+      type: 'string',
+      format: 'binary',
+    },
+    habitaciones: {
+      required: true,
+      type: 'integer',
+      example: 4,
+    },
+    wifi: {
+      required: true,
+      type: 'boolean',
+      example: true,
+    },
+    estacionamiento: {
+      required: true,
+      type: 'boolean',
+      example: true,
+    },
+    privado: {
+      required: true,
+      type: 'boolean',
+      example: true,
+    },
+  },
+};
+
+const schemaUserCreate = {
+  type: 'object',
+  properties: {
+    email: {
+      type: 'string',
+      example: 'jondoe@example.com',
+    },
+    password: {
+      type: 'string',
+      example: 'password1234',
+    },
+  },
+};
+
 export const configComponents = {
   components: {
     schemas: {
       getAllStay: schemaGetAllStay,
+      userCreate: schemaUserCreate,
+      createStay: schemaCreateStay,
     },
   },
 };
