@@ -1,9 +1,17 @@
-import { getAllStaysDoc } from './getAllStays.doc.js';
+import {
+  getAllStaysDoc,
+  getStayByIdDoc,
+  postStayDoc,
+} from './getAllStays.doc.js';
 
 export const docStay = {
-  paths: {
-    '/api/v1/stays/getAllStays': {
-      ...getAllStaysDoc,
-    },
+  '/api/v1/stays/getAllStays': {
+    ...getAllStaysDoc,
+  },
+  '/api/v1/stays/getStayById/{id}': {
+    ...getStayByIdDoc,
+  },
+  '/api/v1/stays/createStay': {
+    ...postStayDoc,
   },
 };

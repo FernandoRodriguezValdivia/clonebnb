@@ -1,11 +1,9 @@
-import { Router } from 'express';
-
-export const stayRouter = Router();
+import { StayGetAll } from '../domain/stayGetAll.class.js';
 
 const stays = [
   {
-    título: 'Villa con Vista al Océano',
-    descripción: 'Villa lujosa con impresionantes vistas al océano',
+    titulo: 'Villa con Vista al Océano',
+    descripcion: 'Villa lujosa con impresionantes vistas al océano',
     imagen: [
       'https://picsum.photos/id/1/300/300',
       'https://picsum.photos/id/2/300/300',
@@ -14,10 +12,14 @@ const stays = [
     precio: 500,
     capacidad: 8,
     id: 1,
+    habitaciones: 4,
+    wifi: true,
+    estacionamiento: true,
+    privado: false,
   },
   {
-    título: 'Cabaña Acogedora',
-    descripción: 'Encantadora cabaña enclavada en el bosque',
+    titulo: 'Cabaña Acogedora',
+    descripcion: 'Encantadora cabaña enclavada en el bosque',
     imagen: [
       'https://picsum.photos/id/4/300/300',
       'https://picsum.photos/id/5/300/300',
@@ -26,10 +28,14 @@ const stays = [
     precio: 200,
     capacidad: 4,
     id: 2,
+    habitaciones: 2,
+    wifi: true,
+    estacionamiento: true,
+    privado: true,
   },
   {
-    título: 'Bungalow Frente a la Playa',
-    descripción: 'Bungalow pintoresco a solo pasos de la playa',
+    titulo: 'Bungalow Frente a la Playa',
+    descripcion: 'Bungalow pintoresco a solo pasos de la playa',
     imagen: [
       'https://picsum.photos/id/7/300/300',
       'https://picsum.photos/id/8/300/300',
@@ -38,10 +44,14 @@ const stays = [
     precio: 300,
     capacidad: 6,
     id: 3,
+    habitaciones: 3,
+    wifi: true,
+    estacionamiento: true,
+    privado: false,
   },
   {
-    título: 'Retiro en la Montaña',
-    descripción: 'Retiro aislado en el corazón de las montañas',
+    titulo: 'Retiro en la Montaña',
+    descripcion: 'Retiro aislado en el corazón de las montañas',
     imagen: [
       'https://picsum.photos/id/10/300/300',
       'https://picsum.photos/id/11/300/300',
@@ -50,10 +60,14 @@ const stays = [
     precio: 400,
     capacidad: 10,
     id: 4,
+    habitaciones: 5,
+    wifi: true,
+    estacionamiento: false,
+    privado: true,
   },
   {
-    título: 'Loft en la Ciudad',
-    descripción: 'Loft moderno en el centro de la ciudad',
+    titulo: 'Loft en la Ciudad',
+    descripcion: 'Loft moderno en el centro de la ciudad',
     imagen: [
       'https://picsum.photos/id/13/300/300',
       'https://picsum.photos/id/14/300/300',
@@ -62,10 +76,14 @@ const stays = [
     precio: 250,
     capacidad: 2,
     id: 5,
+    habitaciones: 1,
+    wifi: true,
+    estacionamiento: true,
+    privado: true,
   },
   {
-    título: 'Casa de Campo Rústica',
-    descripción: 'Casa de campo auténtica con un encanto rústico',
+    titulo: 'Casa de Campo Rústica',
+    descripcion: 'Casa de campo auténtica con un encanto rústico',
     imagen: [
       'https://picsum.photos/id/16/300/300',
       'https://picsum.photos/id/17/300/300',
@@ -74,10 +92,14 @@ const stays = [
     precio: 350,
     capacidad: 12,
     id: 6,
+    habitaciones: 3,
+    wifi: true,
+    estacionamiento: false,
+    privado: true,
   },
   {
-    título: 'Cabaña Frente al Lago',
-    descripción: 'Cabaña pintoresca con hermosas vistas al lago',
+    titulo: 'Cabaña Frente al Lago',
+    descripcion: 'Cabaña pintoresca con hermosas vistas al lago',
     imagen: [
       'https://picsum.photos/id/19/300/300',
       'https://picsum.photos/id/20/300/300',
@@ -86,10 +108,14 @@ const stays = [
     precio: 275,
     capacidad: 4,
     id: 7,
+    habitaciones: 2,
+    wifi: true,
+    estacionamiento: true,
+    privado: false,
   },
   {
-    título: 'Chalet de Esquí',
-    descripción: 'Chalet acogedor perfecto para escapadas invernales',
+    titulo: 'Chalet de Esquí',
+    descripcion: 'Chalet acogedor perfecto para escapadas invernales',
     imagen: [
       'https://picsum.photos/id/22/300/300',
       'https://picsum.photos/id/23/300/300',
@@ -98,10 +124,14 @@ const stays = [
     precio: 450,
     capacidad: 8,
     id: 8,
+    habitaciones: 3,
+    wifi: true,
+    estacionamiento: true,
+    privado: true,
   },
   {
-    título: 'Paraíso Tropical',
-    descripción: 'Villa exótica rodeada de exuberantes jardines tropicales',
+    titulo: 'Paraíso Tropical',
+    descripcion: 'Villa exótica rodeada de exuberantes jardines tropicales',
     imagen: [
       'https://picsum.photos/id/25/300/300',
       'https://picsum.photos/id/26/300/300',
@@ -110,10 +140,14 @@ const stays = [
     precio: 600,
     capacidad: 10,
     id: 9,
+    habitaciones: 5,
+    wifi: true,
+    estacionamiento: true,
+    privado: false,
   },
   {
-    título: 'Mansión Histórica',
-    descripción: 'Mansión elegante con un pasado histórico rico',
+    titulo: 'Mansión Histórica',
+    descripcion: 'Mansión elegante con un pasado histórico rico',
     imagen: [
       'https://picsum.photos/id/28/300/300',
       'https://picsum.photos/id/29/300/300',
@@ -122,10 +156,14 @@ const stays = [
     precio: 800,
     capacidad: 16,
     id: 10,
+    habitaciones: 8,
+    wifi: true,
+    estacionamiento: true,
+    privado: true,
   },
   {
-    título: 'Oasis en el Desierto',
-    descripción: 'Serenidad y relajación en el desierto',
+    titulo: 'Oasis en el Desierto',
+    descripcion: 'Serenidad y relajación en el desierto',
     imagen: [
       'https://picsum.photos/id/31/300/300',
       'https://picsum.photos/id/32/300/300',
@@ -134,10 +172,14 @@ const stays = [
     precio: 350,
     capacidad: 6,
     id: 11,
+    habitaciones: 3,
+    wifi: true,
+    estacionamiento: true,
+    privado: false,
   },
   {
-    título: 'Refugio en la Isla',
-    descripción: 'Refugio privado en una isla para la escapada definitiva',
+    titulo: 'Refugio en la Isla',
+    descripcion: 'Refugio privado en una isla para la escapada definitiva',
     imagen: [
       'https://picsum.photos/id/34/300/300',
       'https://picsum.photos/id/35/300/300',
@@ -146,10 +188,14 @@ const stays = [
     precio: 1000,
     capacidad: 20,
     id: 12,
+    habitaciones: 10,
+    wifi: true,
+    estacionamiento: false,
+    privado: true,
   },
   {
-    título: 'Tienda Safari',
-    descripción: 'Experimenta la naturaleza en una lujosa tienda safari',
+    titulo: 'Tienda Safari',
+    descripcion: 'Experimenta la naturaleza en una lujosa tienda safari',
     imagen: [
       'https://picsum.photos/id/37/300/300',
       'https://picsum.photos/id/38/300/300',
@@ -158,10 +204,14 @@ const stays = [
     precio: 300,
     capacidad: 4,
     id: 13,
+    habitaciones: 1,
+    wifi: true,
+    estacionamiento: false,
+    privado: true,
   },
   {
-    título: 'Castillo en la Colina',
-    descripción: 'Siéntete como la realeza en este majestuoso castillo',
+    titulo: 'Castillo en la Colina',
+    descripcion: 'Siéntete como la realeza en este majestuoso castillo',
     imagen: [
       'https://picsum.photos/id/40/300/300',
       'https://picsum.photos/id/41/300/300',
@@ -170,10 +220,14 @@ const stays = [
     precio: 1200,
     capacidad: 30,
     id: 14,
+    habitaciones: 15,
+    wifi: true,
+    estacionamiento: true,
+    privado: true,
   },
   {
-    título: 'Villa Frente al Mar',
-    descripción: 'Villa elegante con vistas al mar brillante',
+    titulo: 'Villa Frente al Mar',
+    descripcion: 'Villa elegante con vistas al mar brillante',
     imagen: [
       'https://picsum.photos/id/43/300/300',
       'https://picsum.photos/id/44/300/300',
@@ -182,10 +236,14 @@ const stays = [
     precio: 700,
     capacidad: 12,
     id: 15,
+    habitaciones: 6,
+    wifi: true,
+    estacionamiento: true,
+    privado: false,
   },
   {
-    título: 'Refugio en la Casa del Árbol',
-    descripción: 'Casa del árbol única para una estancia sin igual',
+    titulo: 'Refugio en la Casa del Árbol',
+    descripcion: 'Casa del árbol única para una estancia sin igual',
     imagen: [
       'https://picsum.photos/id/46/300/300',
       'https://picsum.photos/id/47/300/300',
@@ -194,10 +252,14 @@ const stays = [
     precio: 250,
     capacidad: 2,
     id: 16,
+    habitaciones: 1,
+    wifi: true,
+    estacionamiento: false,
+    privado: true,
   },
   {
-    título: 'Yate de Lujo',
-    descripción: 'Navega por aguas abiertas con estilo en un yate privado',
+    titulo: 'Yate de Lujo',
+    descripcion: 'Navega por aguas abiertas con estilo en un yate privado',
     imagen: [
       'https://picsum.photos/id/49/300/300',
       'https://picsum.photos/id/50/300/300',
@@ -206,10 +268,14 @@ const stays = [
     precio: 1500,
     capacidad: 10,
     id: 17,
+    habitaciones: 5,
+    wifi: true,
+    estacionamiento: false,
+    privado: true,
   },
   {
-    título: 'Cabaña en el Campo',
-    descripción: 'Cabaña encantadora en un apacible entorno rural',
+    titulo: 'Cabaña en el Campo',
+    descripcion: 'Cabaña encantadora en un apacible entorno rural',
     imagen: [
       'https://picsum.photos/id/52/300/300',
       'https://picsum.photos/id/53/300/300',
@@ -218,10 +284,14 @@ const stays = [
     precio: 275,
     capacidad: 6,
     id: 18,
+    habitaciones: 3,
+    wifi: true,
+    estacionamiento: true,
+    privado: false,
   },
   {
-    título: 'Apartamento Histórico',
-    descripción:
+    titulo: 'Apartamento Histórico',
+    descripcion:
       'Apartamento elegante en un edificio histórico bellamente restaurado',
     imagen: [
       'https://picsum.photos/id/55/300/300',
@@ -231,10 +301,14 @@ const stays = [
     precio: 400,
     capacidad: 4,
     id: 19,
+    habitaciones: 2,
+    wifi: true,
+    estacionamiento: true,
+    privado: true,
   },
   {
-    título: 'Cabaña en la Montaña',
-    descripción: 'Cabaña acogedora con impresionantes vistas a la montaña',
+    titulo: 'Cabaña en la Montaña',
+    descripcion: 'Cabaña acogedora con impresionantes vistas a la montaña',
     imagen: [
       'https://picsum.photos/id/58/300/300',
       'https://picsum.photos/id/59/300/300',
@@ -243,10 +317,14 @@ const stays = [
     precio: 300,
     capacidad: 6,
     id: 20,
+    habitaciones: 4,
+    wifi: true,
+    estacionamiento: false,
+    privado: true,
   },
   {
-    título: 'Casa de Playa',
-    descripción:
+    titulo: 'Casa de Playa',
+    descripcion:
       'Amplia casa frente a la playa para unas vacaciones memorables',
     imagen: [
       'https://picsum.photos/id/61/300/300',
@@ -256,10 +334,14 @@ const stays = [
     precio: 500,
     capacidad: 10,
     id: 21,
+    habitaciones: 5,
+    wifi: true,
+    estacionamiento: true,
+    privado: false,
   },
   {
-    título: 'Villa en la Viña',
-    descripción: 'Paraíso de los amantes del vino en el corazón de una viña',
+    titulo: 'Villa en la Viña',
+    descripcion: 'Paraíso de los amantes del vino en el corazón de una viña',
     imagen: [
       'https://picsum.photos/id/64/300/300',
       'https://picsum.photos/id/65/300/300',
@@ -268,10 +350,14 @@ const stays = [
     precio: 600,
     capacidad: 8,
     id: 22,
+    habitaciones: 4,
+    wifi: true,
+    estacionamiento: true,
+    privado: true,
   },
   {
-    título: 'Condominio Moderno',
-    descripción:
+    titulo: 'Condominio Moderno',
+    descripcion:
       'Condominio elegante y contemporáneo en una ubicación privilegiada',
     imagen: [
       'https://picsum.photos/id/67/300/300',
@@ -281,10 +367,14 @@ const stays = [
     precio: 350,
     capacidad: 4,
     id: 23,
+    habitaciones: 2,
+    wifi: true,
+    estacionamiento: true,
+    privado: true,
   },
   {
-    título: 'Centro de Ski',
-    descripción: 'Resort de lujo en la base de las pistas de ski',
+    titulo: 'Centro de Ski',
+    descripcion: 'Resort de lujo en la base de las pistas de ski',
     imagen: [
       'https://picsum.photos/id/70/300/300',
       'https://picsum.photos/id/71/300/300',
@@ -293,10 +383,14 @@ const stays = [
     precio: 800,
     capacidad: 12,
     id: 24,
+    habitaciones: 6,
+    wifi: true,
+    estacionamiento: true,
+    privado: false,
   },
   {
-    título: 'Cabaña junto al Río',
-    descripción: 'Cabaña pintoresca en un apacible entorno junto al río',
+    titulo: 'Cabaña junto al Río',
+    descripcion: 'Cabaña pintoresca en un apacible entorno junto al río',
     imagen: [
       'https://picsum.photos/id/73/300/300',
       'https://picsum.photos/id/74/300/300',
@@ -305,10 +399,14 @@ const stays = [
     precio: 250,
     capacidad: 2,
     id: 25,
+    habitaciones: 1,
+    wifi: true,
+    estacionamiento: false,
+    privado: true,
   },
   {
-    título: 'Bungalow Tropical',
-    descripción: 'Escapada al paraíso en un bungalow tropical privado',
+    titulo: 'Bungalow Tropical',
+    descripcion: 'Escapada al paraíso en un bungalow tropical privado',
     imagen: [
       'https://picsum.photos/id/76/300/300',
       'https://picsum.photos/id/77/300/300',
@@ -317,10 +415,14 @@ const stays = [
     precio: 450,
     capacidad: 6,
     id: 26,
+    habitaciones: 2,
+    wifi: true,
+    estacionamiento: true,
+    privado: true,
   },
   {
-    título: 'Posada Histórica',
-    descripción:
+    titulo: 'Posada Histórica',
+    descripcion:
       'Posada encantadora con una rica historia y cálida hospitalidad',
     imagen: [
       'https://picsum.photos/id/79/300/300',
@@ -330,10 +432,14 @@ const stays = [
     precio: 300,
     capacidad: 8,
     id: 27,
+    habitaciones: 4,
+    wifi: true,
+    estacionamiento: true,
+    privado: false,
   },
   {
-    título: 'Casa del Lago',
-    descripción: 'Tranquila casa frente al lago para una escapada relajante',
+    titulo: 'Casa del Lago',
+    descripcion: 'Tranquila casa frente al lago para una escapada relajante',
     imagen: [
       'https://picsum.photos/id/82/300/300',
       'https://picsum.photos/id/83/300/300',
@@ -342,10 +448,14 @@ const stays = [
     precio: 400,
     capacidad: 10,
     id: 28,
+    habitaciones: 5,
+    wifi: true,
+    estacionamiento: true,
+    privado: true,
   },
   {
-    título: 'Lodge de Montaña',
-    descripción: 'Lodge rústico rodeado de majestuosas montañas',
+    titulo: 'Lodge de Montaña',
+    descripcion: 'Lodge rústico rodeado de majestuosas montañas',
     imagen: [
       'https://picsum.photos/id/85/300/300',
       'https://picsum.photos/id/86/300/300',
@@ -354,10 +464,14 @@ const stays = [
     precio: 500,
     capacidad: 14,
     id: 29,
+    habitaciones: 7,
+    wifi: true,
+    estacionamiento: true,
+    privado: false,
   },
   {
-    título: 'Estudio Urbano',
-    descripción: 'Estudio compacto en el corazón de la ciudad',
+    titulo: 'Estudio Urbano',
+    descripcion: 'Estudio compacto en el corazón de la ciudad',
     imagen: [
       'https://picsum.photos/id/88/300/300',
       'https://picsum.photos/id/89/300/300',
@@ -366,9 +480,30 @@ const stays = [
     precio: 200,
     capacidad: 2,
     id: 30,
+    habitaciones: 1,
+    wifi: true,
+    estacionamiento: false,
+    privado: true,
   },
 ];
 
-stayRouter.get('/getAllStays', (req, res) => {
-  res.status(200).json({ status: 0, message: '', data: { stays } });
-});
+export const getAllStays = ({ page, size }) => {
+  const staysSelected = stays.slice((page - 1) * size, page * size);
+  const response = [];
+  staysSelected.forEach((stay) => {
+    const stayresponse = new StayGetAll(
+      stay.id,
+      stay.titulo,
+      stay.descripcion,
+      stay.imagen,
+      stay.precio,
+      stay.capacidad,
+      stay.habitaciones,
+      stay.wifi,
+      stay.estacionamiento,
+      stay.privado,
+    );
+    response.push(stayresponse);
+  });
+  return response;
+};

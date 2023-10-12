@@ -1,6 +1,6 @@
 import express from 'express';
 import swaggerUI from 'swagger-ui-express';
-import { stayRouter } from './stay/infrastructure/controllers/stay.controller.js';
+import { stayRouter } from './stay/infrastructure/stay.controller.js';
 import swaggerConfig from './docs/index.js';
 
 const app = express();

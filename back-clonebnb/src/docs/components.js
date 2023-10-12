@@ -32,6 +32,22 @@ const schemaGetAllStay = {
         'https://picsum.photos/id/3/300/300',
       ],
     },
+    habitaciones: {
+      type: 'integer',
+      example: 4,
+    },
+    wifi: {
+      type: 'boolean',
+      example: true,
+    },
+    estacionamiento: {
+      type: 'boolean',
+      example: false,
+    },
+    privado: {
+      type: 'boolean',
+      example: true,
+    },
   },
 };
 
