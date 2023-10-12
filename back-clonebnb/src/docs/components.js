@@ -54,11 +54,6 @@ const schemaGetAllStay = {
 const schemaCreateStay = {
   type: 'object',
   properties: {
-    id: {
-      required: true,
-      type: 'integer',
-      example: 1,
-    },
     título: {
       required: true,
       type: 'string',
