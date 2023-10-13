@@ -1,25 +1,11 @@
 export class StayGetAll {
-  constructor(
-    id,
-    titulo,
-    descripcion,
-    imagen,
-    precio,
-    capacidad,
-    habitaciones,
-    wifi,
-    estacionamiento,
-    privado,
-  ) {
+  constructor({ id, titulo, imagen, precio, pais, provincia, ciudad }) {
     this.id = id;
     this.titulo = titulo;
-    this.descripcion = descripcion;
     this.imagen = imagen;
-    this.precio = precio;
-    this.capacidad = capacidad;
-    this.habitaciones = habitaciones;
-    this.wifi = wifi;
-    this.estacionamiento = estacionamiento;
-    this.privado = privado;
+    this.tarifa = precio;
+    this.pais = pais;
+    this.provincia = provincia;
+    this.ciudad = ciudad;
   }
 }

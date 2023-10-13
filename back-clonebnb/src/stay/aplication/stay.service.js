@@ -16,6 +16,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: false,
+    pais: 'Argentina',
+    provincia: 'Buenos Aires',
+    ciudad: 'Buenos Aires',
   },
   {
     titulo: 'Cabaña Acogedora',
@@ -32,6 +35,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: true,
+    pais: 'Argentina',
+    provincia: 'Cordoba',
+    ciudad: 'Cordoba',
   },
   {
     titulo: 'Bungalow Frente a la Playa',
@@ -48,6 +54,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: false,
+    pais: 'Argentina',
+    provincia: 'Santa Fe',
+    ciudad: 'Rosario',
   },
   {
     titulo: 'Retiro en la Montaña',
@@ -64,6 +73,9 @@ const stays = [
     wifi: true,
     estacionamiento: false,
     privado: true,
+    pais: 'Brazil',
+    provincia: 'Sao Paulo',
+    ciudad: 'Sao Paulo',
   },
   {
     titulo: 'Loft en la Ciudad',
@@ -80,6 +92,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: true,
+    pais: 'Brazil',
+    provincia: 'Rio de Janeiro',
+    ciudad: 'Rio de Janeiro',
   },
   {
     titulo: 'Casa de Campo Rústica',
@@ -96,6 +111,9 @@ const stays = [
     wifi: true,
     estacionamiento: false,
     privado: true,
+    pais: 'Brazil',
+    provincia: 'Bahia',
+    ciudad: 'Salvador',
   },
   {
     titulo: 'Cabaña Frente al Lago',
@@ -112,6 +130,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: false,
+    pais: 'China',
+    provincia: 'Shanghai',
+    ciudad: 'Shanghai',
   },
   {
     titulo: 'Chalet de Esquí',
@@ -128,6 +149,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: true,
+    pais: 'China',
+    provincia: 'Beijing',
+    ciudad: 'Beijing',
   },
   {
     titulo: 'Paraíso Tropical',
@@ -144,6 +168,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: false,
+    pais: 'China',
+    provincia: 'Guangdong',
+    ciudad: 'Shenzhen',
   },
   {
     titulo: 'Mansión Histórica',
@@ -160,6 +187,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: true,
+    pais: 'India',
+    provincia: 'Maharashtra',
+    ciudad: 'Mumbai',
   },
   {
     titulo: 'Oasis en el Desierto',
@@ -176,6 +206,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: false,
+    pais: 'India',
+    provincia: 'Delhi',
+    ciudad: 'Delhi',
   },
   {
     titulo: 'Refugio en la Isla',
@@ -192,6 +225,9 @@ const stays = [
     wifi: true,
     estacionamiento: false,
     privado: true,
+    pais: 'India',
+    provincia: 'Karnataka',
+    ciudad: 'Bangalore',
   },
   {
     titulo: 'Tienda Safari',
@@ -208,6 +244,9 @@ const stays = [
     wifi: true,
     estacionamiento: false,
     privado: true,
+    pais: 'United States',
+    provincia: 'California',
+    ciudad: 'Los Angeles',
   },
   {
     titulo: 'Castillo en la Colina',
@@ -224,6 +263,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: true,
+    pais: 'United States',
+    provincia: 'New York',
+    ciudad: 'New York City',
   },
   {
     titulo: 'Villa Frente al Mar',
@@ -240,6 +282,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: false,
+    pais: 'United States',
+    provincia: 'Texas',
+    ciudad: 'Houston',
   },
   {
     titulo: 'Refugio en la Casa del Árbol',
@@ -256,6 +301,9 @@ const stays = [
     wifi: true,
     estacionamiento: false,
     privado: true,
+    pais: 'Indonesia',
+    provincia: 'Jakarta',
+    ciudad: 'Jakarta',
   },
   {
     titulo: 'Yate de Lujo',
@@ -272,6 +320,9 @@ const stays = [
     wifi: true,
     estacionamiento: false,
     privado: true,
+    pais: 'Indonesia',
+    provincia: 'West Java',
+    ciudad: 'Bandung',
   },
   {
     titulo: 'Cabaña en el Campo',
@@ -288,6 +339,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: false,
+    pais: 'Indonesia',
+    provincia: 'East Java',
+    ciudad: 'Surabaya',
   },
   {
     titulo: 'Apartamento Histórico',
@@ -305,6 +359,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: true,
+    pais: 'Pakistan',
+    provincia: 'Sindh',
+    ciudad: 'Karachi',
   },
   {
     titulo: 'Cabaña en la Montaña',
@@ -321,6 +378,9 @@ const stays = [
     wifi: true,
     estacionamiento: false,
     privado: true,
+    pais: 'Pakistan',
+    provincia: 'Punjab',
+    ciudad: 'Lahore',
   },
   {
     titulo: 'Casa de Playa',
@@ -338,6 +398,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: false,
+    pais: 'Pakistan',
+    provincia: 'Khyber Pakhtunkhwa',
+    ciudad: 'Peshawar',
   },
   {
     titulo: 'Villa en la Viña',
@@ -354,6 +417,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: true,
+    pais: 'Nigeria',
+    provincia: 'Lagos',
+    ciudad: 'Lagos',
   },
   {
     titulo: 'Condominio Moderno',
@@ -371,6 +437,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: true,
+    pais: 'Nigeria',
+    provincia: 'Kano',
+    ciudad: 'Kano',
   },
   {
     titulo: 'Centro de Ski',
@@ -387,6 +456,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: false,
+    pais: 'Nigeria',
+    provincia: 'Oyo',
+    ciudad: 'Ibadan',
   },
   {
     titulo: 'Cabaña junto al Río',
@@ -403,6 +475,9 @@ const stays = [
     wifi: true,
     estacionamiento: false,
     privado: true,
+    pais: 'Bangladesh',
+    provincia: 'Dhaka',
+    ciudad: 'Dhaka',
   },
   {
     titulo: 'Bungalow Tropical',
@@ -419,6 +494,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: true,
+    pais: 'Bangladesh',
+    provincia: 'Chittagong',
+    ciudad: 'Chittagong',
   },
   {
     titulo: 'Posada Histórica',
@@ -436,6 +514,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: false,
+    pais: 'Bangladesh',
+    provincia: 'Rajshahi',
+    ciudad: 'Rajshahi',
   },
   {
     titulo: 'Casa del Lago',
@@ -452,6 +533,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: true,
+    pais: 'Russia',
+    provincia: 'Moscow',
+    ciudad: 'Moscow',
   },
   {
     titulo: 'Lodge de Montaña',
@@ -468,6 +552,9 @@ const stays = [
     wifi: true,
     estacionamiento: true,
     privado: false,
+    pais: 'Russia',
+    provincia: 'Saint Petersburg',
+    ciudad: 'Saint Petersburg',
   },
   {
     titulo: 'Estudio Urbano',
@@ -484,26 +571,28 @@ const stays = [
     wifi: true,
     estacionamiento: false,
     privado: true,
+    pais: 'Russia',
+    provincia: 'Novosibirsk',
+    ciudad: 'Novosibirsk',
   },
 ];
 
 export const getAllStays = ({ page, size }) => {
   const staysSelected = stays.slice((page - 1) * size, page * size);
   const response = [];
-  staysSelected.forEach((stay) => {
-    const stayresponse = new StayGetAll(
-      stay.id,
-      stay.titulo,
-      stay.descripcion,
-      stay.imagen,
-      stay.precio,
-      stay.capacidad,
-      stay.habitaciones,
-      stay.wifi,
-      stay.estacionamiento,
-      stay.privado,
-    );
-    response.push(stayresponse);
-  });
+  staysSelected.forEach(
+    ({ id, titulo, imagen, precio, pais, provincia, ciudad }) => {
+      const stayresponse = new StayGetAll({
+        id,
+        titulo,
+        imagen,
+        precio,
+        pais,
+        provincia,
+        ciudad,
+      });
+      response.push(stayresponse);
+    },
+  );
   return response;
 };

@@ -5,21 +5,13 @@ const schemaGetAllStay = {
       type: 'integer',
       example: 1,
     },
-    título: {
+    titulo: {
       type: 'string',
       example: 'Villa con Vista al Océano',
     },
-    descripción: {
-      type: 'string',
-      example: 'Villa lujosa con impresionantes vistas al océano',
-    },
-    precio: {
+    tarifa: {
       type: 'integer',
       example: 500,
-    },
-    capacidad: {
-      type: 'integer',
-      example: 8,
     },
     imagen: {
       type: 'array',
@@ -32,21 +24,17 @@ const schemaGetAllStay = {
         'https://picsum.photos/id/3/300/300',
       ],
     },
-    habitaciones: {
-      type: 'integer',
-      example: 4,
+    pais: {
+      type: 'string',
+      example: 'Argentina',
     },
-    wifi: {
-      type: 'boolean',
-      example: true,
+    provincia: {
+      type: 'string',
+      example: 'Buenos Aires',
     },
-    estacionamiento: {
-      type: 'boolean',
-      example: false,
-    },
-    privado: {
-      type: 'boolean',
-      example: true,
+    ciudad: {
+      type: 'string',
+      example: 'Buenos Aires',
     },
   },
 };
