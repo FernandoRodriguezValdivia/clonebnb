@@ -1,9 +1,11 @@
 import express from 'express';
+import cors from 'cors';
 import swaggerUI from 'swagger-ui-express';
 import { stayRouter } from './stay/infrastructure/stay.controller.js';
 import swaggerConfig from './docs/index.js';
 
 const app = express();
+app.use(cors());
 const port = process.env.PORT || 8000;
 
 app.get('/', (req, res) => {
