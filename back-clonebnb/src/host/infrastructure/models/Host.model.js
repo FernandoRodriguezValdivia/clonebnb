@@ -1,4 +1,4 @@
-import { DataTypes } from 'Sequelize';
+import { DataTypes } from 'sequelize';
 import { sequelize } from '../../../database/config.sequelize.js';
 
 export const Host = sequelize.define('Host', {
