@@ -1,7 +1,7 @@
 export const createVisitorDoc = {
   post: {
     tags: ['Visitor'],
-    description: 'Register visitor - in progress',
+    description: 'Register visitor - done',
     requestBody: {
       required: true,
       content: {
@@ -68,7 +68,7 @@ export const createVisitorDoc = {
 export const loginVisitorDoc = {
   post: {
     tags: ['Visitor'],
-    description: 'Login visitor - in progress',
+    description: 'Login visitor - done',
     requestBody: {
       required: true,
       content: {

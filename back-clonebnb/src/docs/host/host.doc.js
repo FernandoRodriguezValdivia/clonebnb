@@ -1,7 +1,7 @@
 export const createHostDoc = {
   post: {
     tags: ['Host'],
-    description: 'Register host - in progress',
+    description: 'Register host - done',
     requestBody: {
       required: true,
       content: {
@@ -68,7 +68,7 @@ export const createHostDoc = {
 export const loginHost = {
   post: {
     tags: ['Host'],
-    description: 'Login host - in progress',
+    description: 'Login host - done',
     requestBody: {
       required: true,
       content: {
