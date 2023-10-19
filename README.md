@@ -1,16 +1,45 @@
-# Clonebnb
-Clonebnb es una plataforma creada para usuarios que deseeb reservar un espacio para alojarse durante un viaje. 
+# Clonebnb 
 
-### Backend 
-Para la base de datos hemos comenzado con el diseño de esta. 
+Es una plataforma de alojamiento y alquiler vacacional que permite a los usuarios buscar y reservar espacios. Los usuarios anfitriones pueden crear anuncios de sus propiedades para que los huéspedes los encuentren y reserven.
 
-### Frontend y UX/UI
-Diseñamos nuestros primeros [prototipos](https://www.figma.com/file/HM5hlwqUjqN20GyZRkZScl/clonebnb?type=design&node-id=90-250&mode=design&t=dHpWd8MyCScIgEJh-0) utilizando Figma.
+### Stack de tecnologías usadas
 
-### El Equipo: 
-Project Manager: [Ninoska Ramos](https://www.linkedin.com/in/lenisramos/)
-Backend Developer: [Andrés Acuña](linkedin.com/in/andres-acuña222)
-Backend Developer: [Fernando Rodríguez](https://www.linkedin.com/in/fernando-rodriguez-valdivia/)
-Frontend Developer: [Fernando Malán](https://malanfernando.github.io/Portfolio/)
-Frontend Developer: [Ilse Cervantes](https://www.linkedin.com/in/ilsecervantes/)
-Frontend Developer: [Jose Hernández](http://linkedin.com/in/josemanuel-hernandez)
+![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![Next JS](https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+### Prototipo de Figma
+Aca puedes hecharle un ojo: [Clonebnb-Figma](https://www.figma.com/file/n6atJPpld0MlLEJOIRj8z4/Clonebnb?type=design&node-id=0%3A1&mode=design&t=F0uYYdb202RsKfxu-1).
+
+### Equipo  
+Project Manager:  
+[Ninoska Ramos](https://www.linkedin.com/in/lenisramos/)
+
+Backend:  
+[Fernando Rodrcguez](https://www.linkedin.com/in/fernando-rodriguez-valdivia/)
+
+Frontend:  
+[Fernando Malán](https://malanfernando.github.io/Portfolio/)  
+[Jose Hernández](http://linkedin.com/in/josemanuel-hernandez)
+
+### Uso basico
+```bash
+# Clone repository
+$ git clone https://github.com/No-Country/c14-04-m-node-react.git
+
+# Go into the directory
+$ cd c14-04-m-node-react
+
+# Install dependencies:
+$ cd back-clonebnb
+$ npm install
+
+$ cd front-clonebnb
+$ npm install
+
+# Run App
+$ npm start
+```
