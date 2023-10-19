@@ -23,7 +23,7 @@ app.use('/v1/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerConfig));
 
 app.listen(port, async () => {
   try {
-    await sequelize.sync();
+    await sequelize.sync({ force: true });
     await sequelize.authenticate();
     console.log('Connection has been established successfully.');
   } catch (error) {
