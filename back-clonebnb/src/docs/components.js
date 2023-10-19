@@ -42,62 +42,89 @@ const schemaGetAllStay = {
 const schemaCreateStay = {
   type: 'object',
   properties: {
-    título: {
-      required: true,
+    titulo: {
       type: 'string',
       example: 'Villa con Vista al Océano',
     },
-    descripción: {
-      required: true,
+    descripcion: {
       type: 'string',
       example: 'Villa lujosa con impresionantes vistas al océano',
     },
-    precio: {
-      required: true,
+    pais: {
+      type: 'string',
+      example: 'Argentina',
+    },
+    estado: {
+      type: 'string',
+      example: 'Buenos Aires',
+    },
+    ciudad: {
+      type: 'string',
+      example: 'Buenos Aires',
+    },
+    avenida: {
+      type: 'string',
+      example: 'Avenida las Flores N°550',
+    },
+    tarifa: {
       type: 'integer',
       example: 500,
     },
     capacidad: {
-      required: true,
       type: 'integer',
       example: 8,
     },
-    imagen_1: {
-      required: true,
+    imagen1: {
       type: 'string',
       format: 'binary',
     },
-    imagen_2: {
-      required: true,
+    imagen2: {
       type: 'string',
       format: 'binary',
     },
-    imagen_3: {
-      required: true,
+    imagen3: {
       type: 'string',
       format: 'binary',
     },
-    habitaciones: {
-      required: true,
+    numeroHabitaciones: {
       type: 'integer',
       example: 4,
     },
     wifi: {
-      required: true,
       type: 'boolean',
       example: true,
     },
     estacionamiento: {
-      required: true,
       type: 'boolean',
       example: true,
     },
     privado: {
-      required: true,
       type: 'boolean',
       example: true,
     },
+    categoriaId: {
+      type: 'integer',
+      example: 1,
+    },
   },
+  required: [
+    'titulo',
+    'descripcion',
+    'tarifa',
+    'capacidad',
+    'pais',
+    'ciudad',
+    'estado',
+    'avenida',
+    'imagen1',
+    'imagen2',
+    'imagen3',
+    'numeroHabitaciones',
+    'wifi',
+    'estacionamiento',
+    'privado',
+    'categoriaId',
+  ],
 };
 
 const schemaUserCreate = {
@@ -114,6 +141,14 @@ const schemaUserCreate = {
   },
 };
 
+const securitySchemes = {
+  bearerAuth: {
+    type: 'http',
+    scheme: 'bearer',
+    bearerFormat: 'JWT',
+  },
+};
+
 export const configComponents = {
   components: {
     schemas: {
@@ -121,5 +156,6 @@ export const configComponents = {
       userCreate: schemaUserCreate,
       createStay: schemaCreateStay,
     },
+    securitySchemes,
   },
 };

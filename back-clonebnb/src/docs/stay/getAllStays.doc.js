@@ -77,13 +77,69 @@ export const getStayByIdDoc = {
 
 export const postStayDoc = {
   post: {
+    security: [{ bearerAuth: [] }],
     tags: ['Stay'],
     description: 'Create stay - in progress',
     requestBody: {
       content: {
-        'multipart/form-data:': {
+        'multipart/form-data': {
           schema: {
             $ref: '#/components/schemas/createStay',
+          },
+          encoding: {
+            img: {
+              contentType: 'image/png, image/jpeg',
+            },
+          },
+        },
+      },
+    },
+    responses: {
+      201: {
+        description: 'Stay created',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'object',
+              properties: {
+                status: {
+                  type: 'integer',
+                  example: 0,
+                },
+                message: {
+                  type: 'string',
+                  example: 'Stay created',
+                },
+                data: {
+                  type: 'object',
+                  example: '{}',
+                },
+              },
+            },
+          },
+        },
+      },
+      400: {
+        description: 'Error',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'object',
+              properties: {
+                status: {
+                  type: 'integer',
+                  example: 1,
+                },
+                message: {
+                  type: 'string',
+                  example: 'Error',
+                },
+                data: {
+                  type: 'object',
+                  example: '{}',
+                },
+              },
+            },
           },
         },
       },
