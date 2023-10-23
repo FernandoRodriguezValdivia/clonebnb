@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../../../database/config.sequelize.js';
 
-export const Host = sequelize.define('Host', {
+export const Host = sequelize.define('host', {
   email: {
     type: DataTypes.STRING,
     allowNull: false,
