@@ -5,8 +5,11 @@ export class CreateStay {
     titulo,
     descripcion,
     imagen1,
+    imagenId1,
     imagen2,
+    imagenId2,
     imagen3,
+    imagenId3,
     tarifa,
     capacidad,
     numeroHabitaciones,
@@ -23,8 +26,11 @@ export class CreateStay {
     this.titulo = titulo;
     this.descripcion = descripcion;
     this.imagen1 = imagen1;
+    this.imagenId1 = imagenId1;
     this.imagen2 = imagen2;
+    this.imagenId2 = imagenId2;
     this.imagen3 = imagen3;
+    this.imagenId3 = imagenId3;
     this.tarifa = tarifa;
     this.capacidad = Number(capacidad);
     this.numeroHabitaciones = Number(numeroHabitaciones);

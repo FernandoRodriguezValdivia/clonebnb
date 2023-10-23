@@ -12,10 +12,19 @@ export const Stay = sequelize.define('Stay', {
   imagen1: {
     type: DataTypes.STRING,
   },
+  imagenId1: {
+    type: DataTypes.STRING,
+  },
   imagen2: {
     type: DataTypes.STRING,
   },
+  imagenId2: {
+    type: DataTypes.STRING,
+  },
   imagen3: {
+    type: DataTypes.STRING,
+  },
+  imagenId3: {
     type: DataTypes.STRING,
   },
   tarifa: {

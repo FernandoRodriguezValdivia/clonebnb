@@ -1,4 +1,4 @@
-import { getAllStays } from '../../aplication/stay.service.js';
+import { getAllStays, uploadImage } from '../../aplication/stay.service.js';
 import { Stay } from '../models/Stay.model.js';
 
 export const getAll = async (req, res) => {
@@ -27,15 +27,16 @@ export const createStay = async (req, res) => {
   const { id } = req;
   const data = req.body;
   const files = req.files;
-  console.log(data);
+  // console.log(data);
   try {
-    const stay = await Stay.create({
+    const resultFiles = await uploadImage(files);
+    await Stay.create({
       hostId: id,
       ...data,
+      ...resultFiles,
     });
-    res.json({ status: 0, data: { stay } });
+    res.status(201).json({ status: 0, data: {}, message: 'Stay created' });
   } catch (error) {
-    console.log(error.message);
-    res.json({ status: 1, data: {} });
+    res.json({ status: 1, data: {}, message: error.message });
   }
 };
