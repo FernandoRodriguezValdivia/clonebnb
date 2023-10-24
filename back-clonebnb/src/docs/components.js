@@ -118,8 +118,6 @@ const schemaCreateStay = {
     'estado',
     'avenida',
     'imagen1',
-    'imagen2',
-    'imagen3',
     'numeroHabitaciones',
     'wifi',
     'estacionamiento',
