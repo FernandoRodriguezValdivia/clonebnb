@@ -1,6 +1,6 @@
-import 'dotenv/config';
 import { Router } from 'express';
 import { hash, compare } from 'bcrypt';
+import { config } from '../../../config/index.js';
 import jwt from 'jsonwebtoken';
 
 import { Host } from './models/Host.model.js';
@@ -34,7 +34,7 @@ hostRouter.post('/loginHost', async (req, res) => {
     if (host) {
       const isVerified = await verifiedPassword(password, host.password);
       if (isVerified) {
-        const token = jwt.sign({ id: host.id }, process.env.APP_KEY);
+        const token = jwt.sign({ id: host.id }, config.app.key);
         res
           .status(201)
           .json({ status: 0, message: 'Host Login', data: { token } });

@@ -1,7 +1,7 @@
 export const getAllStaysDoc = {
   get: {
     tags: ['Stay'],
-    description: 'Get all stays for landing page - use mock data',
+    description: 'Get all stays for landing page - done',
     parameters: [
       {
         name: 'page',
@@ -26,6 +26,8 @@ export const getAllStaysDoc = {
         in: 'query',
         schema: {
           type: 'integer',
+          minimum: 1,
+          maximum: 10,
           example: '1',
         },
         description: 'categoryId',
@@ -69,7 +71,7 @@ export const getAllStaysDoc = {
 export const getStayByIdDoc = {
   get: {
     tags: ['Stay'],
-    description: 'Get stay by id - in progress',
+    description: 'Get stay by id - in progess',
     parameters: [
       {
         name: 'id',
@@ -86,13 +88,69 @@ export const getStayByIdDoc = {
 
 export const postStayDoc = {
   post: {
+    security: [{ bearerAuth: [] }],
     tags: ['Stay'],
-    description: 'Create stay - in progress',
+    description: 'Create stay - done',
     requestBody: {
       content: {
-        'multipart/form-data:': {
+        'multipart/form-data': {
           schema: {
             $ref: '#/components/schemas/createStay',
+          },
+          encoding: {
+            img: {
+              contentType: 'image/png, image/jpeg',
+            },
+          },
+        },
+      },
+    },
+    responses: {
+      201: {
+        description: 'Stay created',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'object',
+              properties: {
+                status: {
+                  type: 'integer',
+                  example: 0,
+                },
+                message: {
+                  type: 'string',
+                  example: 'Stay created',
+                },
+                data: {
+                  type: 'object',
+                  example: '{}',
+                },
+              },
+            },
+          },
+        },
+      },
+      400: {
+        description: 'Error',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'object',
+              properties: {
+                status: {
+                  type: 'integer',
+                  example: 1,
+                },
+                message: {
+                  type: 'string',
+                  example: 'Error',
+                },
+                data: {
+                  type: 'object',
+                  example: '{}',
+                },
+              },
+            },
           },
         },
       },

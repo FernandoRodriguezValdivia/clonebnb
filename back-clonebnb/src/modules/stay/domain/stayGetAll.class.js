@@ -3,19 +3,19 @@ export class StayGetAll {
     id,
     titulo,
     imagen,
-    precio,
+    tarifa,
     pais,
-    provincia,
+    estado,
     ciudad,
-    categoria,
+    categoriaId,
   }) {
     this.id = id;
     this.titulo = titulo;
     this.imagen = imagen;
-    this.tarifa = precio;
+    this.tarifa = tarifa;
     this.pais = pais;
-    this.provincia = provincia;
+    this.provincia = estado;
     this.ciudad = ciudad;
-    this.categoria = categoria;
+    this.categoria = categoriaId;
   }
 }

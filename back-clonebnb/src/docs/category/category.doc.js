@@ -1,7 +1,7 @@
 export const getReservationByHostDoc = {
   get: {
     tags: ['Category'],
-    description: 'Get all categories - mock data',
+    description: 'Get all categories - done',
     responses: {
       200: {
         description: 'Get all categories',

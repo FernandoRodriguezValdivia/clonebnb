@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import { config } from '../../../config/index.js';
 import { Router } from 'express';
 import { hash, compare } from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -34,7 +34,7 @@ visitorRouter.post('/loginVisitor', async (req, res) => {
     if (visitor) {
       const isVerified = await verifiedPassword(password, visitor.password);
       if (isVerified) {
-        const token = jwt.sign({ id: visitor.id }, process.env.APP_KEY);
+        const token = jwt.sign({ id: visitor.id }, config.app.key);
         res
           .status(201)
           .json({ status: 0, message: 'Visitor Login', data: { token } });
