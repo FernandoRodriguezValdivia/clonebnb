@@ -1,8 +1,8 @@
 import { DataTypes } from 'sequelize';
-import { sequelize } from '../../../database/config.sequelize.js';
+import { sequelize } from '../../../../database/config.sequelize.js';
 import { Stay } from '../../../stay/infrastructure/models/Stay.model.js';
 
-export const Host = sequelize.define('Host', {
+export const Host = sequelize.define('host', {
   email: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -16,5 +16,5 @@ export const Host = sequelize.define('Host', {
   },
 });
 
-Host.hasMany(Stay, { foreignKey: 'hostId', as: 'stays' });
+Host.hasMany(Stay, { foreignKey: 'hostId' });
 Stay.belongsTo(Host, { foreignKey: 'hostId' });

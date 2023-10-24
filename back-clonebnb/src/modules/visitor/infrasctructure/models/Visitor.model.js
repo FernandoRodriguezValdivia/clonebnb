@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
-import { sequelize } from '../../../database/config.sequelize.js';
+import { sequelize } from '../../../../database/config.sequelize.js';
 
-export const Visitor = sequelize.define('Visitor', {
+export const Visitor = sequelize.define('visitor', {
   email: {
     type: DataTypes.STRING,
     allowNull: false,

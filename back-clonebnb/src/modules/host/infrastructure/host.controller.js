@@ -1,43 +1,43 @@
-import 'dotenv/config';
 import { Router } from 'express';
 import { hash, compare } from 'bcrypt';
+import { config } from '../../../config/index.js';
 import jwt from 'jsonwebtoken';
 
-import { Visitor } from './models/Visitor.model.js';
+import { Host } from './models/Host.model.js';
 
-export const visitorRouter = Router();
+export const hostRouter = Router();
 
 const verifiedPassword = async (passwordSent, passwordStored) => {
   const verified = await compare(passwordSent, passwordStored);
   return verified;
 };
 
-visitorRouter.post('/createVisitor', async (req, res) => {
+hostRouter.post('/createHost', async (req, res) => {
   const { email, password } = req.body;
   try {
     const hashPassword = await hash(password, 10);
-    await Visitor.create({ email, password: hashPassword });
-    res.status(201).json({ status: 0, message: 'Visitor Created', data: {} });
+    await Host.create({ email, password: hashPassword });
+    res.status(201).json({ status: 0, message: 'Host Created', data: {} });
   } catch (error) {
     res.status(400).json({ status: 1, message: error.message, data: {} });
   }
 });
 
-visitorRouter.post('/loginVisitor', async (req, res) => {
+hostRouter.post('/loginHost', async (req, res) => {
   const { email, password } = req.body;
   try {
-    const visitor = await Visitor.findOne({
+    const host = await Host.findOne({
       where: { email },
       attributes: ['id', 'email', 'password'],
       raw: true,
     });
-    if (visitor) {
-      const isVerified = await verifiedPassword(password, visitor.password);
+    if (host) {
+      const isVerified = await verifiedPassword(password, host.password);
       if (isVerified) {
-        const token = jwt.sign({ id: visitor.id }, process.env.APP_KEY);
+        const token = jwt.sign({ id: host.id }, config.app.key);
         res
           .status(201)
-          .json({ status: 0, message: 'Visitor Login', data: { token } });
+          .json({ status: 0, message: 'Host Login', data: { token } });
       } else {
         res
           .status(400)

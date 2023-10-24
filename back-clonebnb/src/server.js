@@ -1,15 +1,14 @@
+/* eslint-disable no-console */
 import express from 'express';
 import cors from 'cors';
 import fileUpload from 'express-fileupload';
 import { sequelize } from './database/config.sequelize.js';
 import swaggerConfig from './docs/index.js';
 import swaggerUI from 'swagger-ui-express';
-import { stayRouter } from './stay/infrastructure/stay.controller.js';
-import { hostRouter } from './host/infrastructure/host.controller.js';
-import { visitorRouter } from './visitor/infrasctructure/visitor.controller.js';
-import { categoryRouter } from './category/infrestructure/category.controller.js';
-import './stay/infrastructure/models/Stay.model.js';
-import './category/infrestructure/models/Category.model.js';
+import { stayRouter } from './modules/stay/infrastructure/stay.controller.js';
+import { hostRouter } from './modules/host/infrastructure/host.controller.js';
+import { visitorRouter } from './modules/visitor/infrasctructure/visitor.controller.js';
+import { categoryRouter } from './modules/category/infrastructure/category.controller.js';
 
 const app = express();
 app.use(cors());
@@ -34,7 +33,6 @@ app.use('/api/v1/category', categoryRouter);
 app.use('/v1/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerConfig));
 
 app.listen(port, async () => {
-  console.log(process.env.NODE_ENV);
   try {
     // await sequelize.sync({ alter: true });
     await sequelize.authenticate();
@@ -46,5 +44,7 @@ app.listen(port, async () => {
   console.log(
     `Documentacion disponible en http://localhost:${port}/v1/api-docs`,
   );
-  console.log(`Server is running in port: ${port}`);
+  console.log(
+    `Server is running in port: ${port} in mode ${process.env.NODE_ENV}`,
+  );
 });

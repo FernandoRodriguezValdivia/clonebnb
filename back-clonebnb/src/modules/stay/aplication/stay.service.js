@@ -1,4 +1,4 @@
-import { cloudinary } from '../../cloudinary/config.js';
+import { cloudinary } from '../../../cloudinary/config.js';
 import { StayGetAll } from '../domain/stayGetAll.class.js';
 import { Stay } from '../infrastructure/models/Stay.model.js';
 

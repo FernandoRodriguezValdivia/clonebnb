@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import { config } from '../config/index.js';
 import jwt from 'jsonwebtoken';
 
 export const authorization = (req, res, next) => {
@@ -7,7 +7,7 @@ export const authorization = (req, res, next) => {
     try {
       const bearer = bearerHeader.split(' ');
       const bearerToken = bearer[1];
-      const { id } = jwt.verify(bearerToken, process.env.APP_KEY);
+      const { id } = jwt.verify(bearerToken, config.app.key);
       req.id = id;
       next();
     } catch (error) {

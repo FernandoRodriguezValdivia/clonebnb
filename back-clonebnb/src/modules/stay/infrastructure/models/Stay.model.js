@@ -1,8 +1,8 @@
 import { DataTypes } from 'sequelize';
-import { sequelize } from '../../../database/config.sequelize.js';
-import { Category } from '../../../category/infrestructure/models/Category.model.js';
+import { sequelize } from '../../../../database/config.sequelize.js';
+import { Category } from '../../../category/infrastructure/models/Category.model.js';
 
-export const Stay = sequelize.define('Stay', {
+export const Stay = sequelize.define('stay', {
   titulo: {
     type: DataTypes.STRING,
   },
