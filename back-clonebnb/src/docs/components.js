@@ -10,8 +10,9 @@ const schemaGetAllStay = {
       example: 'Villa con Vista al Océano',
     },
     tarifa: {
-      type: 'integer',
-      example: 500,
+      type: 'number',
+      format: 'float',
+      example: 500.99,
     },
     imagen: {
       type: 'array',
@@ -35,6 +36,12 @@ const schemaGetAllStay = {
     ciudad: {
       type: 'string',
       example: 'Buenos Aires',
+    },
+    categoria: {
+      type: 'integer',
+      minimum: 1,
+      maximum: 10,
+      example: 1,
     },
   },
 };
@@ -78,14 +85,6 @@ const schemaCreateStay = {
       type: 'string',
       format: 'binary',
     },
-    imagen2: {
-      type: 'string',
-      format: 'binary',
-    },
-    imagen3: {
-      type: 'string',
-      format: 'binary',
-    },
     numeroHabitaciones: {
       type: 'integer',
       example: 4,
@@ -104,6 +103,8 @@ const schemaCreateStay = {
     },
     categoriaId: {
       type: 'integer',
+      minimum: 1,
+      maximum: 10,
       example: 1,
     },
   },

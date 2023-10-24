@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../../../../database/config.sequelize.js';
+import { Reservation } from '../../../reservation/infrastructure/models/Reservation.model.js';
 
 export const Visitor = sequelize.define('visitor', {
   email: {
@@ -14,3 +15,6 @@ export const Visitor = sequelize.define('visitor', {
     type: DataTypes.STRING,
   },
 });
+
+Visitor.hasMany(Reservation, { foreignKey: 'visitorId' });
+Reservation.belongsTo(Visitor, { foreignKey: 'visitorId' });

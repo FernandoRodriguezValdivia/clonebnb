@@ -1,7 +1,7 @@
 export const getAllStaysDoc = {
   get: {
     tags: ['Stay'],
-    description: 'Get all stays for landing page - use mock data',
+    description: 'Get all stays for landing page - done',
     parameters: [
       {
         name: 'page',
@@ -20,6 +20,17 @@ export const getAllStaysDoc = {
           example: '10',
         },
         description: 'page size, value default: 10',
+      },
+      {
+        name: 'category',
+        in: 'query',
+        schema: {
+          type: 'integer',
+          minimum: 1,
+          maximum: 10,
+          example: '1',
+        },
+        description: 'categoryId',
       },
     ],
     responses: {
@@ -60,7 +71,7 @@ export const getAllStaysDoc = {
 export const getStayByIdDoc = {
   get: {
     tags: ['Stay'],
-    description: 'Get stay by id - in progress',
+    description: 'Get stay by id - in progess',
     parameters: [
       {
         name: 'id',
@@ -79,7 +90,7 @@ export const postStayDoc = {
   post: {
     security: [{ bearerAuth: [] }],
     tags: ['Stay'],
-    description: 'Create stay - in progress',
+    description: 'Create stay - done',
     requestBody: {
       content: {
         'multipart/form-data': {

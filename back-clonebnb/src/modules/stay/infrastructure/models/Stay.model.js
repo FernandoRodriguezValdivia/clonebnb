@@ -1,6 +1,8 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../../../../database/config.sequelize.js';
 import { Category } from '../../../category/infrastructure/models/Category.model.js';
+import { Image } from '../../../image/infrastructure/models/Image.model.js';
+import { Reservation } from '../../../reservation/infrastructure/models/Reservation.model.js';
 
 export const Stay = sequelize.define('stay', {
   titulo: {
@@ -9,26 +11,8 @@ export const Stay = sequelize.define('stay', {
   descripcion: {
     type: DataTypes.STRING,
   },
-  imagen1: {
-    type: DataTypes.STRING,
-  },
-  imagenId1: {
-    type: DataTypes.STRING,
-  },
-  imagen2: {
-    type: DataTypes.STRING,
-  },
-  imagenId2: {
-    type: DataTypes.STRING,
-  },
-  imagen3: {
-    type: DataTypes.STRING,
-  },
-  imagenId3: {
-    type: DataTypes.STRING,
-  },
   tarifa: {
-    type: DataTypes.STRING,
+    type: DataTypes.DECIMAL(12, 2),
   },
   capacidad: {
     type: DataTypes.INTEGER,
@@ -59,5 +43,11 @@ export const Stay = sequelize.define('stay', {
   },
 });
 
-Category.hasOne(Stay, { foreignKey: 'categoriaId' });
+Category.hasMany(Stay, { foreignKey: 'categoriaId' });
 Stay.belongsTo(Category, { foreignKey: 'categoriaId' });
+
+Stay.hasMany(Image, { foreignKey: 'alojamientoId' });
+Image.belongsTo(Stay, { foreignKey: 'alojamientoId' });
+
+Stay.hasMany(Reservation, { foreignKey: 'stayId' });
+Reservation.belongsTo(Stay, { foreignKey: 'stayId' });

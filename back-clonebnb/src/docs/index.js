@@ -4,6 +4,7 @@ import { docStay } from './stay/index.js';
 import { docHost } from './host/index.js';
 import { docVisitor } from './visitor/index.js';
 import { docReservation } from './reservation/index.js';
+import { docCategory } from './category/index.js';
 
 const swaggerConfig = {
   ...config,
@@ -13,6 +14,7 @@ const swaggerConfig = {
     ...docStay,
     ...docVisitor,
     ...docReservation,
+    ...docCategory,
   },
 };
 

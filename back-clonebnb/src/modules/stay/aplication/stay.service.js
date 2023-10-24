@@ -1,21 +1,40 @@
 import { cloudinary } from '../../../cloudinary/config.js';
+import { Image } from '../../image/infrastructure/models/Image.model.js';
 import { StayGetAll } from '../domain/stayGetAll.class.js';
 import { Stay } from '../infrastructure/models/Stay.model.js';
 
-export const getAllStays = async ({ page, size }) => {
+export const getAllStays = async ({ page, size, category }) => {
   const offset = (page - 1) * size;
+  const where = {};
+  if (category > 0) where.categoriaId = category;
   const response = await Stay.findAll({
     offset,
     limit: Number(size),
-    raw: true,
+    where,
+    attributes: [
+      'id',
+      'titulo',
+      'tarifa',
+      'pais',
+      'estado',
+      'ciudad',
+      'categoriaId',
+    ],
+    include: [
+      {
+        model: Image,
+        attributes: ['id', 'url'],
+      },
+    ],
   });
 
+  const responseJson = response.map((stay) => stay.toJSON());
   const stays = [];
-  response.forEach((stay) => {
+  responseJson.forEach((stay) => {
     stays.push(
       new StayGetAll({
         ...stay,
-        imagen: [stay.imagen1, stay.imagen2, stay.imagen3],
+        imagen: stay.images,
       }),
     );
   });
@@ -26,28 +45,39 @@ export const getAllStays = async ({ page, size }) => {
 export const uploadImage = async (files) => {
   if (process.env.NODE_ENV === 'production') {
     try {
-      const resultFiles = {};
-      for (const [index, [, value]] of Object.entries(files).entries()) {
+      const filesUpload = [];
+      for (const [, value] of Object.entries(files)) {
         const { tempFilePath } = value;
-        const upload = await cloudinary.uploader.upload(tempFilePath, {
-          upload_preset: 'ml_default',
-        });
-        resultFiles[`imagen${index + 1}`] = upload.url;
-        resultFiles[`imagenId${index + 1}`] = upload.public_id;
+        filesUpload.push(
+          cloudinary.uploader.upload(tempFilePath, {
+            upload_preset: 'ml_default',
+          }),
+        );
       }
-      return resultFiles;
+
+      const allUpload = await Promise.all(filesUpload);
+      return allUpload.map((upload) => ({
+        url: upload.url,
+        urlId: upload.public_id,
+      }));
     } catch (e) {
       throw new Error(e);
     }
   } else {
     const idImage = Math.floor(Math.random() * 100) + 1;
-    return {
-      imagen1: `https://picsum.photos/id/${idImage}/300/300`,
-      imagenId1: `${idImage}`,
-      imagen2: `https://picsum.photos/id/${idImage + 1}/300/300`,
-      imagenId2: `${idImage + 1}`,
-      imagen3: `https://picsum.photos/id/${idImage + 2}/300/300`,
-      imagenId3: `${idImage + 2}`,
-    };
+    return [
+      {
+        url: `https://picsum.photos/id/${idImage}/300/300`,
+        urlId: `${idImage}`,
+      },
+      {
+        url: `https://picsum.photos/id/${idImage + 1}/300/300`,
+        urlId: `${idImage + 1}`,
+      },
+      {
+        url: `https://picsum.photos/id/${idImage + 1}/300/300`,
+        urlId: `${idImage + 1}`,
+      },
+    ];
   }
 };
