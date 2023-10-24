@@ -36,6 +36,10 @@ const schemaGetAllStay = {
       type: 'string',
       example: 'Buenos Aires',
     },
+    categoria: {
+      type: 'integer',
+      example: 1,
+    },
   },
 };
 

@@ -1,5 +1,14 @@
 export class StayGetAll {
-  constructor({ id, titulo, imagen, precio, pais, provincia, ciudad }) {
+  constructor({
+    id,
+    titulo,
+    imagen,
+    precio,
+    pais,
+    provincia,
+    ciudad,
+    categoria,
+  }) {
     this.id = id;
     this.titulo = titulo;
     this.imagen = imagen;
@@ -7,5 +16,6 @@ export class StayGetAll {
     this.pais = pais;
     this.provincia = provincia;
     this.ciudad = ciudad;
+    this.categoria = categoria;
   }
 }

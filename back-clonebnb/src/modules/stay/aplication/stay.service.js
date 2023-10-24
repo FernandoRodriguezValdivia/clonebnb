@@ -19,6 +19,7 @@ const stays = [
     pais: 'Argentina',
     provincia: 'Buenos Aires',
     ciudad: 'Buenos Aires',
+    categoria: 1,
   },
   {
     titulo: 'Cabaña Acogedora',
@@ -38,6 +39,7 @@ const stays = [
     pais: 'Argentina',
     provincia: 'Cordoba',
     ciudad: 'Cordoba',
+    categoria: 2,
   },
   {
     titulo: 'Bungalow Frente a la Playa',
@@ -57,6 +59,7 @@ const stays = [
     pais: 'Argentina',
     provincia: 'Santa Fe',
     ciudad: 'Rosario',
+    categoria: 5,
   },
   {
     titulo: 'Retiro en la Montaña',
@@ -76,6 +79,7 @@ const stays = [
     pais: 'Brazil',
     provincia: 'Sao Paulo',
     ciudad: 'Sao Paulo',
+    categoria: 3,
   },
   {
     titulo: 'Loft en la Ciudad',
@@ -95,6 +99,7 @@ const stays = [
     pais: 'Brazil',
     provincia: 'Rio de Janeiro',
     ciudad: 'Rio de Janeiro',
+    categoria: 10,
   },
   {
     titulo: 'Casa de Campo Rústica',
@@ -114,6 +119,7 @@ const stays = [
     pais: 'Brazil',
     provincia: 'Bahia',
     ciudad: 'Salvador',
+    categoria: 10,
   },
   {
     titulo: 'Cabaña Frente al Lago',
@@ -133,6 +139,7 @@ const stays = [
     pais: 'China',
     provincia: 'Shanghai',
     ciudad: 'Shanghai',
+    categoria: 7,
   },
   {
     titulo: 'Chalet de Esquí',
@@ -152,6 +159,7 @@ const stays = [
     pais: 'China',
     provincia: 'Beijing',
     ciudad: 'Beijing',
+    categoria: 9,
   },
   {
     titulo: 'Paraíso Tropical',
@@ -171,6 +179,7 @@ const stays = [
     pais: 'China',
     provincia: 'Guangdong',
     ciudad: 'Shenzhen',
+    categoria: 8,
   },
   {
     titulo: 'Mansión Histórica',
@@ -190,6 +199,7 @@ const stays = [
     pais: 'India',
     provincia: 'Maharashtra',
     ciudad: 'Mumbai',
+    categoria: 6,
   },
   {
     titulo: 'Oasis en el Desierto',
@@ -209,6 +219,7 @@ const stays = [
     pais: 'India',
     provincia: 'Delhi',
     ciudad: 'Delhi',
+    categoria: 5,
   },
   {
     titulo: 'Refugio en la Isla',
@@ -228,6 +239,7 @@ const stays = [
     pais: 'India',
     provincia: 'Karnataka',
     ciudad: 'Bangalore',
+    categoria: 4,
   },
   {
     titulo: 'Tienda Safari',
@@ -247,6 +259,7 @@ const stays = [
     pais: 'United States',
     provincia: 'California',
     ciudad: 'Los Angeles',
+    categoria: 3,
   },
   {
     titulo: 'Castillo en la Colina',
@@ -266,6 +279,7 @@ const stays = [
     pais: 'United States',
     provincia: 'New York',
     ciudad: 'New York City',
+    categoria: 2,
   },
   {
     titulo: 'Villa Frente al Mar',
@@ -285,6 +299,7 @@ const stays = [
     pais: 'United States',
     provincia: 'Texas',
     ciudad: 'Houston',
+    categoria: 1,
   },
   {
     titulo: 'Refugio en la Casa del Árbol',
@@ -304,6 +319,7 @@ const stays = [
     pais: 'Indonesia',
     provincia: 'Jakarta',
     ciudad: 'Jakarta',
+    categoria: 4,
   },
   {
     titulo: 'Yate de Lujo',
@@ -323,6 +339,7 @@ const stays = [
     pais: 'Indonesia',
     provincia: 'West Java',
     ciudad: 'Bandung',
+    categoria: 2,
   },
   {
     titulo: 'Cabaña en el Campo',
@@ -342,6 +359,7 @@ const stays = [
     pais: 'Indonesia',
     provincia: 'East Java',
     ciudad: 'Surabaya',
+    categoria: 3,
   },
   {
     titulo: 'Apartamento Histórico',
@@ -362,6 +380,7 @@ const stays = [
     pais: 'Pakistan',
     provincia: 'Sindh',
     ciudad: 'Karachi',
+    categoria: 4,
   },
   {
     titulo: 'Cabaña en la Montaña',
@@ -381,6 +400,7 @@ const stays = [
     pais: 'Pakistan',
     provincia: 'Punjab',
     ciudad: 'Lahore',
+    categoria: 5,
   },
   {
     titulo: 'Casa de Playa',
@@ -401,6 +421,7 @@ const stays = [
     pais: 'Pakistan',
     provincia: 'Khyber Pakhtunkhwa',
     ciudad: 'Peshawar',
+    categoria: 6,
   },
   {
     titulo: 'Villa en la Viña',
@@ -420,6 +441,7 @@ const stays = [
     pais: 'Nigeria',
     provincia: 'Lagos',
     ciudad: 'Lagos',
+    categoria: 7,
   },
   {
     titulo: 'Condominio Moderno',
@@ -440,6 +462,7 @@ const stays = [
     pais: 'Nigeria',
     provincia: 'Kano',
     ciudad: 'Kano',
+    categoria: 8,
   },
   {
     titulo: 'Centro de Ski',
@@ -459,6 +482,7 @@ const stays = [
     pais: 'Nigeria',
     provincia: 'Oyo',
     ciudad: 'Ibadan',
+    categoria: 9,
   },
   {
     titulo: 'Cabaña junto al Río',
@@ -478,6 +502,7 @@ const stays = [
     pais: 'Bangladesh',
     provincia: 'Dhaka',
     ciudad: 'Dhaka',
+    categoria: 10,
   },
   {
     titulo: 'Bungalow Tropical',
@@ -497,6 +522,7 @@ const stays = [
     pais: 'Bangladesh',
     provincia: 'Chittagong',
     ciudad: 'Chittagong',
+    categoria: 9,
   },
   {
     titulo: 'Posada Histórica',
@@ -517,6 +543,7 @@ const stays = [
     pais: 'Bangladesh',
     provincia: 'Rajshahi',
     ciudad: 'Rajshahi',
+    categoria: 8,
   },
   {
     titulo: 'Casa del Lago',
@@ -536,6 +563,7 @@ const stays = [
     pais: 'Russia',
     provincia: 'Moscow',
     ciudad: 'Moscow',
+    categoria: 1,
   },
   {
     titulo: 'Lodge de Montaña',
@@ -555,6 +583,7 @@ const stays = [
     pais: 'Russia',
     provincia: 'Saint Petersburg',
     ciudad: 'Saint Petersburg',
+    categoria: 2,
   },
   {
     titulo: 'Estudio Urbano',
@@ -574,14 +603,17 @@ const stays = [
     pais: 'Russia',
     provincia: 'Novosibirsk',
     ciudad: 'Novosibirsk',
+    categoria: 5,
   },
 ];
 
-export const getAllStays = ({ page, size }) => {
-  const staysSelected = stays.slice((page - 1) * size, page * size);
+export const getAllStays = ({ page, size, category }) => {
+  const staysSelected = stays
+    .filter((stay) => stay.categoria === category || category === 0)
+    .slice((page - 1) * size, page * size);
   const response = [];
   staysSelected.forEach(
-    ({ id, titulo, imagen, precio, pais, provincia, ciudad }) => {
+    ({ id, titulo, imagen, precio, pais, provincia, ciudad, categoria }) => {
       const stayresponse = new StayGetAll({
         id,
         titulo,
@@ -590,6 +622,7 @@ export const getAllStays = ({ page, size }) => {
         pais,
         provincia,
         ciudad,
+        categoria,
       });
       response.push(stayresponse);
     },

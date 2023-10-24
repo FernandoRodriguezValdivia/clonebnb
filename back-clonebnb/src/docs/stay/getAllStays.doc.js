@@ -21,6 +21,15 @@ export const getAllStaysDoc = {
         },
         description: 'page size, value default: 10',
       },
+      {
+        name: 'category',
+        in: 'query',
+        schema: {
+          type: 'integer',
+          example: '1',
+        },
+        description: 'categoryId',
+      },
     ],
     responses: {
       200: {

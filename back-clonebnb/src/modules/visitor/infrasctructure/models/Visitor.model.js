@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import { sequelize } from '../../../database/config.sequelize.js';
+import { sequelize } from '../../../../database/config.sequelize.js';
 
 export const Visitor = sequelize.define('visitor', {
   email: {
