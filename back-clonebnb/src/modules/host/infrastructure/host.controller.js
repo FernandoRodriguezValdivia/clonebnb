@@ -15,6 +15,8 @@ const verifiedPassword = async (passwordSent, passwordStored) => {
 hostRouter.post('/createHost', async (req, res) => {
   const { email, password } = req.body;
   try {
+    if (email.trim().length === 0) throw new Error('Email is empty');
+    if (password.trim().length === 0) throw new Error('Password is empty');
     const hashPassword = await hash(password, 10);
     await Host.create({ email, password: hashPassword });
     res.status(201).json({ status: 0, message: 'Host Created', data: {} });
