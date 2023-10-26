@@ -1,28 +1,15 @@
-import { HousingCard } from '@/components/HousingCard';
-
-async function getStays() {
-  const res = await fetch(
-    'https://c14-04-m-node-react-production.up.railway.app/api/v1/stays/getAllStays?page=1&size=10'
-  );
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-
-  return res.json();
-}
+import { Filters } from '@/components/filter/Filters';
+import { Accommodations } from '@/components/content/Accommodations';
+import { FilterProvider } from '@/context/FilterProvider';
 
 export default async function Home() {
-  const housing = await getStays();
-  const stays = housing.data.stays;
 
   return (
-    <main>
-      <section className="grid grid-cols-auto gap-8 justify-items-center max-w-7xl m-10">
-        {stays.map((stay) => (
-          <HousingCard key={stay.id} stay={stay} />
-        ))}
-      </section>
-    </main>
+    <FilterProvider>
+      <main className="relative m-auto px-5 pb-5 md:px-8 md:pb-8 max-w-screen-2xl">
+        <Filters />
+        <Accommodations />
+      </main>
+    </FilterProvider>
   );
 }
