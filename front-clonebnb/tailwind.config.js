@@ -11,7 +11,8 @@ module.exports = {
       green: '#299868',
       white: '#FEFEFF',
       red: '#FF3636',
-      gray: '#AAAAAA'
+      gray: '#AAAAAA',
+      opacity: '#EDEDED'
     },
     fontFamily: {
       sans: ['IBM Plex Sans Hebrew', 'sans-serif']
@@ -22,7 +23,7 @@ module.exports = {
     },
     extend: {
       gridTemplateColumns: {
-        'auto': 'repeat(auto-fill, minmax(250px, 1fr))'
+        auto: 'repeat(auto-fill, minmax(248px, 1fr))'
       }
     }
   },
