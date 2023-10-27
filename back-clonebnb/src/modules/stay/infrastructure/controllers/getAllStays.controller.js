@@ -56,3 +56,48 @@ export const createStay = async (req, res) => {
     res.status(400).json({ status: 1, data: {}, message: error.message });
   }
 };
+
+export const getStayById = async (req, res) => {
+  const { id } = req.params;
+  const idInteger = parseInt(id);
+  try {
+    if (isNaN(idInteger) || idInteger <= 0) {
+      res
+        .status(400)
+        .json({ status: 1, message: 'StayId incorrect', data: {} });
+    } else {
+      const stay = await Stay.findByPk(idInteger, {
+        attributes: [
+          'id',
+          'titulo',
+          'descripcion',
+          'tarifa',
+          'wifi',
+          'estacionamiento',
+          'privado',
+          'numeroHabitaciones',
+          'capacidad',
+          'pais',
+          'estado',
+          'ciudad',
+        ],
+        include: [
+          {
+            model: Image,
+            attributes: ['id', 'url'],
+          },
+        ],
+      });
+
+      if (stay) {
+        res.status(200).json({ status: 0, message: '', data: { stay } });
+      } else {
+        res
+          .status(404)
+          .json({ status: 1, message: 'StayId incorrect', data: {} });
+      }
+    }
+  } catch (error) {
+    res.status(500).json({ status: 2, message: error.message, data: {} });
+  }
+};

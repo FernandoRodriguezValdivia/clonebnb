@@ -46,6 +46,60 @@ const schemaGetAllStay = {
   },
 };
 
+const schemaGetStayById = {
+  type: 'object',
+  properties: {
+    id: {
+      type: 'integer',
+      example: 1,
+    },
+    titulo: {
+      type: 'string',
+      example: 'Villa con Vista al Océano',
+    },
+    descripcion: {
+      type: 'string',
+      example: 'Villa lujosa con impresionantes vistas al océano',
+    },
+    tarifa: {
+      type: 'number',
+      format: 'float',
+      example: 500.99,
+    },
+    wifi: {
+      type: 'boolean',
+      example: true,
+    },
+    estacionamiento: {
+      type: 'boolean',
+      example: true,
+    },
+    imagen: {
+      type: 'array',
+      items: {
+        type: 'string',
+      },
+      example: [
+        'https://picsum.photos/id/1/300/300',
+        'https://picsum.photos/id/2/300/300',
+        'https://picsum.photos/id/3/300/300',
+      ],
+    },
+    pais: {
+      type: 'string',
+      example: 'Argentina',
+    },
+    estado: {
+      type: 'string',
+      example: 'Buenos Aires',
+    },
+    ciudad: {
+      type: 'string',
+      example: 'Buenos Aires',
+    },
+  },
+};
+
 const schemaCreateStay = {
   type: 'object',
   properties: {
@@ -154,6 +208,7 @@ export const configComponents = {
       getAllStay: schemaGetAllStay,
       userCreate: schemaUserCreate,
       createStay: schemaCreateStay,
+      getStayById: schemaGetStayById,
     },
     securitySchemes,
   },

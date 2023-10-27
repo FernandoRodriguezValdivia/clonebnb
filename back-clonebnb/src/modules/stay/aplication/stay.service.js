@@ -57,7 +57,7 @@ export const uploadImage = async (files) => {
 
       const allUpload = await Promise.all(filesUpload);
       return allUpload.map((upload) => ({
-        url: upload.url,
+        url: upload.secure_url,
         urlId: upload.public_id,
       }));
     } catch (e) {

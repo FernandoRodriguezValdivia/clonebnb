@@ -71,7 +71,7 @@ export const getAllStaysDoc = {
 export const getStayByIdDoc = {
   get: {
     tags: ['Stay'],
-    description: 'Get stay by id - in progess',
+    description: 'Get stay by id - done',
     parameters: [
       {
         name: 'id',
@@ -83,6 +83,18 @@ export const getStayByIdDoc = {
         description: 'Stay id',
       },
     ],
+    responses: {
+      201: {
+        description: 'Stay Detail Obtained',
+        content: {
+          'application/json': {
+            schema: {
+              $ref: '#/components/schemas/getStayById',
+            },
+          },
+        },
+      },
+    },
   },
 };
 
