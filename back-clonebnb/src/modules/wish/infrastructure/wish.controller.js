@@ -20,7 +20,7 @@ wishRouter.post('/addStay', authorizationVisitor, async (req, res) => {
 });
 
 wishRouter.get('/getWish', authorizationVisitor, async (req, res) => {
-  const visitorId = 1;
+  const visitorId = Number(req.id);
 
   const wish = await Wish.findAll({
     where: {
