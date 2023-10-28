@@ -9,6 +9,8 @@ import { stayRouter } from './modules/stay/infrastructure/stay.controller.js';
 import { hostRouter } from './modules/host/infrastructure/host.controller.js';
 import { visitorRouter } from './modules/visitor/infrasctructure/visitor.controller.js';
 import { categoryRouter } from './modules/category/infrastructure/category.controller.js';
+import { reservationRouter } from './modules/reservation/infrastructure/reservation.controller.js';
+import { wishRouter } from './modules/wish/infrastructure/wish.controller.js';
 
 const app = express();
 app.use(cors());
@@ -30,12 +32,14 @@ app.use('/api/v1/stays', stayRouter);
 app.use('/api/v1/host', hostRouter);
 app.use('/api/v1/visitor', visitorRouter);
 app.use('/api/v1/category', categoryRouter);
+app.use('/api/v1/reservation', reservationRouter);
+app.use('/api/v1/wish', wishRouter);
 app.use('/v1/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerConfig));
 
 app.listen(port, async () => {
   try {
-    // await sequelize.sync({ force: true });
-    await sequelize.authenticate();
+    await sequelize.sync({ alter: true });
+    // await sequelize.authenticate();
     console.log('Connection has been established successfully.');
   } catch (error) {
     console.log(error);

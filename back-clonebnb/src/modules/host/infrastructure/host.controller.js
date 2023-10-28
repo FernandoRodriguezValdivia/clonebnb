@@ -36,7 +36,7 @@ hostRouter.post('/loginHost', async (req, res) => {
     if (host) {
       const isVerified = await verifiedPassword(password, host.password);
       if (isVerified) {
-        const token = jwt.sign({ id: host.id }, config.app.key);
+        const token = jwt.sign({ id: host.id, type: 'host' }, config.app.key);
         res
           .status(201)
           .json({ status: 0, message: 'Host Login', data: { token } });

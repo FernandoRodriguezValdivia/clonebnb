@@ -36,7 +36,10 @@ visitorRouter.post('/loginVisitor', async (req, res) => {
     if (visitor) {
       const isVerified = await verifiedPassword(password, visitor.password);
       if (isVerified) {
-        const token = jwt.sign({ id: visitor.id }, config.app.key);
+        const token = jwt.sign(
+          { id: visitor.id, type: 'visitor' },
+          config.app.key,
+        );
         res
           .status(201)
           .json({ status: 0, message: 'Visitor Login', data: { token } });

@@ -1,21 +1,27 @@
-export const createReservationDoc = {
+export const createWishDoc = {
   post: {
     security: [{ bearerAuth: [] }],
-    tags: ['Reservation'],
-    description: 'create reservation - done',
+    tags: ['Wish'],
+    description: 'Add Wish - done',
     requestBody: {
       required: true,
       content: {
         'application/json': {
           schema: {
-            $ref: '#/components/schemas/reservationCreate',
+            type: 'object',
+            properties: {
+              stayId: {
+                type: 'integer',
+                example: 1,
+              },
+            },
           },
         },
       },
     },
     responses: {
       201: {
-        description: 'Reservation created',
+        description: 'Wish added',
         content: {
           'application/json': {
             schema: {
@@ -27,11 +33,11 @@ export const createReservationDoc = {
                 },
                 message: {
                   type: 'string',
-                  example: 'Reservation created',
+                  example: 'Wish added',
                 },
                 data: {
                   type: 'object',
-                  example: '{}',
+                  example: {},
                 },
               },
             },
@@ -66,22 +72,14 @@ export const createReservationDoc = {
   },
 };
 
-export const getReservationByHostDoc = {
+export const getWishDoc = {
   get: {
     security: [{ bearerAuth: [] }],
-    tags: ['Reservation'],
-    description: 'get reservation by host - in progress',
-  },
-};
-
-export const getAllReservationByHostDoc = {
-  get: {
-    security: [{ bearerAuth: [] }],
-    tags: ['Reservation'],
-    description: 'get all reservation by host - done',
+    tags: ['Wish'],
+    description: 'get Wish - done',
     responses: {
-      200: {
-        description: 'Reservations obtained',
+      201: {
+        description: 'Wish obtained',
         content: {
           'application/json': {
             schema: {
@@ -93,13 +91,11 @@ export const getAllReservationByHostDoc = {
                 },
                 message: {
                   type: 'string',
-                  example: 'Reservation obtained',
+                  example: 'Wish obtained',
                 },
                 data: {
-                  type: 'array',
-                  items: {
-                    $ref: '#/components/schemas/getReservation',
-                  },
+                  type: 'object',
+                  example: {},
                 },
               },
             },
@@ -134,22 +130,25 @@ export const getAllReservationByHostDoc = {
   },
 };
 
-export const getReservationByVisitorDoc = {
-  get: {
+export const removeWishDoc = {
+  delete: {
     security: [{ bearerAuth: [] }],
-    tags: ['Reservation'],
-    description: 'get reservation by visitor - in progress',
-  },
-};
-
-export const getAllReservationByVisitorDoc = {
-  get: {
-    security: [{ bearerAuth: [] }],
-    tags: ['Reservation'],
-    description: 'get all reservation by visitor - done',
+    tags: ['Wish'],
+    description: 'delete Stay - done',
+    parameters: [
+      {
+        name: 'id',
+        in: 'path',
+        schema: {
+          type: 'integer',
+          example: '1',
+        },
+        description: 'Stay id',
+      },
+    ],
     responses: {
       200: {
-        description: 'Reservations obtained',
+        description: 'Wish delete',
         content: {
           'application/json': {
             schema: {
@@ -161,13 +160,11 @@ export const getAllReservationByVisitorDoc = {
                 },
                 message: {
                   type: 'string',
-                  example: 'Reservation obtained',
+                  example: 'Wish delete',
                 },
                 data: {
-                  type: 'array',
-                  items: {
-                    $ref: '#/components/schemas/getReservation',
-                  },
+                  type: 'object',
+                  example: {},
                 },
               },
             },

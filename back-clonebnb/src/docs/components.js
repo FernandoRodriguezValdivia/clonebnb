@@ -194,6 +194,80 @@ const schemaUserCreate = {
   },
 };
 
+const schemaReservationCreate = {
+  type: 'object',
+  properties: {
+    startDate: {
+      type: 'date',
+      example: '2023-10-27',
+    },
+    endDate: {
+      type: 'date',
+      example: '2023-10-29',
+    },
+    quantityVisitors: {
+      type: 'integer',
+      example: 4,
+    },
+    totalPrice: {
+      type: 'number',
+      format: 'float',
+      example: 60.0,
+    },
+    stayId: {
+      type: 'integer',
+      example: 1,
+    },
+    hostId: {
+      type: 'integer',
+      example: 1,
+    },
+    visitorId: {
+      type: 'integer',
+      example: 1,
+    },
+  },
+};
+
+const schemaGetReservation = {
+  type: 'object',
+  properties: {
+    id: {
+      type: 'integer',
+      example: 1,
+    },
+    startDate: {
+      type: 'date',
+      example: '2023-10-27',
+    },
+    endDate: {
+      type: 'date',
+      example: '2023-10-29',
+    },
+    quantityVisitors: {
+      type: 'integer',
+      example: 4,
+    },
+    totalPrice: {
+      type: 'number',
+      format: 'float',
+      example: 60.0,
+    },
+    stayId: {
+      type: 'integer',
+      example: 1,
+    },
+    hostId: {
+      type: 'integer',
+      example: 1,
+    },
+    visitorId: {
+      type: 'integer',
+      example: 1,
+    },
+  },
+};
+
 const securitySchemes = {
   bearerAuth: {
     type: 'http',
@@ -209,6 +283,8 @@ export const configComponents = {
       userCreate: schemaUserCreate,
       createStay: schemaCreateStay,
       getStayById: schemaGetStayById,
+      reservationCreate: schemaReservationCreate,
+      getReservation: schemaGetReservation,
     },
     securitySchemes,
   },
