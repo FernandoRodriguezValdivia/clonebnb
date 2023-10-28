@@ -1,4 +1,4 @@
-import NextAuth from "next-auth"
+import NextAuth from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials"
 
 const authOptions = {
@@ -29,7 +29,7 @@ const authOptions = {
           //const user = {id: '1', name: 'noel', email: 'noel@example.com'}
           const user = await res.json()
 
-          console.log(user)
+          // console.log(user)
           
           if (user.error) {
             throw new Error(user)
