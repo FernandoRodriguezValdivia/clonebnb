@@ -2,6 +2,7 @@ import { NavBar } from '@/components/menu/NavBar'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { HousingProvider } from '@/context/HousingProvider';
+import Providers from '@/components/providers/Providers';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,9 +15,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NavBar />
+        <header className="flex justify-center">
+          <NavBar />
+        </header>
         <HousingProvider>
-          {children}
+          <Providers>{children}</Providers>
         </HousingProvider>
       </body>
     </html>
