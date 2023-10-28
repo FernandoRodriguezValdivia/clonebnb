@@ -4,28 +4,33 @@ import { Stay } from '../models/Stay.model.js';
 
 export const getAll = async (req, res) => {
   const { page = 1, size = 10, category = 0 } = req.query;
-  const pageInt = parseInt(page);
-  const sizeInt = parseInt(size);
-  const categoryInt = parseInt(category);
-  if (
-    isNaN(pageInt) ||
-    isNaN(sizeInt) ||
-    isNaN(categoryInt) ||
-    categoryInt < 0 ||
-    categoryInt > 10 ||
-    pageInt <= 0 ||
-    sizeInt <= 0
-  ) {
-    return res
-      .status(400)
-      .json({ status: 1, message: 'Invalid parameters', data: [] });
+
+  try {
+    const pageInt = parseInt(page);
+    const sizeInt = parseInt(size);
+    const categoryInt = parseInt(category);
+    if (
+      isNaN(pageInt) ||
+      isNaN(sizeInt) ||
+      isNaN(categoryInt) ||
+      categoryInt < 0 ||
+      categoryInt > 10 ||
+      pageInt <= 0 ||
+      sizeInt <= 0
+    ) {
+      return res
+        .status(400)
+        .json({ status: 1, message: 'Invalid parameters', data: [] });
+    }
+    const stays = await getAllStays({
+      page: pageInt,
+      size: sizeInt,
+      category: categoryInt,
+    });
+    res.status(200).json({ status: 0, message: '', data: { stays } });
+  } catch (error) {
+    res.status(500).json({ status: 2, message: error.message, data: {} });
   }
-  const stays = await getAllStays({
-    page: pageInt,
-    size: sizeInt,
-    category: categoryInt,
-  });
-  res.status(200).json({ status: 0, message: '', data: { stays } });
 };
 
 export const createStay = async (req, res) => {
