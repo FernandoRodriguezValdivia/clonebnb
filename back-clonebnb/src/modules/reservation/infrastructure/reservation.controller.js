@@ -1,15 +1,12 @@
 import { Router } from 'express';
-import {
-  authorizationHost,
-  authorizationVisitor,
-} from '../../../middlewares/authorization.middleware.js';
+import { authorization } from '../../../middlewares/authorization.middleware.js';
 import { Reservation } from './models/Reservation.model.js';
 
 export const reservationRouter = Router();
 
 reservationRouter.post(
   '/createReservation',
-  authorizationVisitor,
+  authorization,
   async (req, res) => {
     const {
       startDate,
@@ -43,7 +40,7 @@ reservationRouter.post(
 
 reservationRouter.get(
   '/getAllReservationByVisitor',
-  authorizationVisitor,
+  authorization,
   async (req, res) => {
     // const { startDate, endDate } = req.query;
     const visitorId = Number(req.id);
@@ -66,7 +63,7 @@ reservationRouter.get(
 
 reservationRouter.get(
   '/getAllReservationByHost',
-  authorizationHost,
+  authorization,
   async (req, res) => {
     // const { startDate, endDate } = req.query;
     const hostId = Number(req.id);

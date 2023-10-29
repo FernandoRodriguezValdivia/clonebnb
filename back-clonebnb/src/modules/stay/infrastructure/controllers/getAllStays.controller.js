@@ -56,6 +56,7 @@ export const createStay = async (req, res) => {
         include: [Image],
       },
     );
+
     res.status(201).json({ status: 0, data: {}, message: 'Stay created' });
   } catch (error) {
     res.status(400).json({ status: 1, data: {}, message: error.message });
@@ -85,6 +86,7 @@ export const getStayById = async (req, res) => {
           'pais',
           'estado',
           'ciudad',
+          'hostId',
         ],
         include: [
           {

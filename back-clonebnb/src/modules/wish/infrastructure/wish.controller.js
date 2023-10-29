@@ -1,17 +1,17 @@
 import { Router } from 'express';
-import { authorizationVisitor } from '../../../middlewares/authorization.middleware.js';
+import { authorization } from '../../../middlewares/authorization.middleware.js';
 import { Wish } from './models/Wish.model.js';
 import { Stay } from '../../stay/infrastructure/models/Stay.model.js';
 import { Image } from '../../image/infrastructure/models/Image.model.js';
 
 export const wishRouter = Router();
 
-wishRouter.post('/addStay', authorizationVisitor, async (req, res) => {
-  const visitorId = Number(req.id);
+wishRouter.post('/addStay', authorization, async (req, res) => {
+  const userId = Number(req.id);
   const { stayId } = req.body;
   try {
     const wish = await Wish.create({
-      visitorId,
+      userId,
       stayId,
     });
     res.status(201).json({ status: 0, message: 'stay added', data: { wish } });
@@ -20,13 +20,13 @@ wishRouter.post('/addStay', authorizationVisitor, async (req, res) => {
   }
 });
 
-wishRouter.get('/getWish', authorizationVisitor, async (req, res) => {
-  const visitorId = Number(req.id);
+wishRouter.get('/getWish', authorization, async (req, res) => {
+  const userId = Number(req.id);
 
   try {
     const wish = await Wish.findAll({
       where: {
-        visitorId,
+        userId,
       },
       include: {
         model: Stay,
@@ -59,7 +59,7 @@ wishRouter.get('/getWish', authorizationVisitor, async (req, res) => {
   }
 });
 
-wishRouter.delete('/removeStay/:id', authorizationVisitor, async (req, res) => {
+wishRouter.delete('/removeStay/:id', authorization, async (req, res) => {
   const { id } = req.params;
   try {
     const stayId = Number(id);

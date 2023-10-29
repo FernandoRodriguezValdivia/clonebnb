@@ -1,7 +1,7 @@
-export const createHostDoc = {
+export const createUserDoc = {
   post: {
-    tags: ['Host'],
-    description: 'Register host - done',
+    tags: ['User'],
+    description: 'Register user - done',
     requestBody: {
       required: true,
       content: {
@@ -14,7 +14,7 @@ export const createHostDoc = {
     },
     responses: {
       201: {
-        description: 'Host created',
+        description: 'User created',
         content: {
           'application/json': {
             schema: {
@@ -26,7 +26,7 @@ export const createHostDoc = {
                 },
                 message: {
                   type: 'string',
-                  example: 'Host created',
+                  example: 'User created',
                 },
                 data: {
                   type: 'object',
@@ -65,10 +65,10 @@ export const createHostDoc = {
   },
 };
 
-export const loginHost = {
+export const loginUser = {
   post: {
-    tags: ['Host'],
-    description: 'Login host - done',
+    tags: ['User'],
+    description: 'Login user - done',
     requestBody: {
       required: true,
       content: {
@@ -81,7 +81,7 @@ export const loginHost = {
     },
     responses: {
       200: {
-        description: 'Host Login',
+        description: 'User Login',
         content: {
           'application/json': {
             schema: {
@@ -93,7 +93,7 @@ export const loginHost = {
                 },
                 message: {
                   type: 'string',
-                  example: 'Host login',
+                  example: 'User login',
                 },
                 data: {
                   type: 'object',
