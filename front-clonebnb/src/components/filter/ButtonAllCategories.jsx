@@ -8,16 +8,17 @@ export const ButtonAllCategories = () => {
 
   const categoryFiltered = (e) => {
     const category = e.target.value;
-    dispatchFilter({ type: TYPES.CATEGORY, payload: category });
+    const allCategories = parseInt(category)
+    dispatchFilter({ type: TYPES.CATEGORY, payload: allCategories });
     e.preventDefault();
   };
 
-  const catAll = parseInt(filter.category);
+  const catAll = filter.category;
 
   return (
     <button
-      className={`min-w-max text-center flex gap-2 pt-3 pb-1 px-1 opacity-70 text-xs font-bold hover:opacity-100 ${
-        catAll === 0 && 'opacity-100'
+      className={`min-w-max text-center flex gap-2 pt-3 pb-1 px-1 text-xs font-bold hover:opacity-100 ${
+        catAll === 0 ? 'opacity-100' : 'opacity-60'
       }`}
       type="button"
       onClick={categoryFiltered}
