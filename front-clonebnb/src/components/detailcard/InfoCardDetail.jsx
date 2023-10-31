@@ -1,5 +1,11 @@
+import Link from "next/link";
+
+
 export const InfoCardDetail = ()=>{
   return (
+
+    
+    
     <section className="md:w-1/2 md:min-w-[280px] grid md:justify-center gap-6 px-4 sm:pl-0">
       <div>
         <h2 className="font-bold text-lg">Accommodation title</h2>
@@ -48,10 +54,13 @@ export const InfoCardDetail = ()=>{
             $100 <span className="text-sm font-normal">/ Night</span>
           </h3>
         </section>
+        <Link href='/wishlist'>
         <button className="bg-green py-1 px-3 rounded-1xs text-white">
           Reserve
         </button>
+        </Link>
       </div>
+
     </section>
   );
 }

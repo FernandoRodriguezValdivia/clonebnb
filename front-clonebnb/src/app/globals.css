@@ -7,7 +7,7 @@ body {
 }
 
 <<<<<<< HEAD
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
   
@@ -24,7 +24,7 @@ background-color: #ffff;
 .scroll-style::-webkit-scrollbar-track {
   background-color: none;
 >>>>>>> 530eb0cb1cda477a21a7d079e6420f2a7f5e7421
-}
+} */
 
 .scroll-style::-webkit-scrollbar-thumb {
   background-color: #1f1f1f48;

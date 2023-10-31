@@ -13,7 +13,7 @@ const authOptions = {
 
       async authorize(credentials, req) {
       
-        const url = 'https://c14-04-m-node-react-production.up.railway.app/api/v1/visitor/loginVisitor'
+        const url = `${process.env.NEXT_PUBLIC_LOGIN_URL}/api/v1/user/loginUser`
           const res = await fetch(url,  {
             method: 'POST',
             body: JSON.stringify({

@@ -28,7 +28,7 @@ const handleSubmit = async (e) =>{
     setFormErrors(validate(formValues))
     setisSubmit(true)
 
-        const res = await fetch('https://c14-04-m-node-react-production.up.railway.app/api/v1/visitor/createVisitor', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_REGISTER_URL}/api/v1/user/createUser`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({
