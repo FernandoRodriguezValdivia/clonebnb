@@ -1,55 +1,44 @@
-export const InfoCardDetail = ()=>{
+import { InfoDetailServices } from "./InfoDetailServices";
+
+export const InfoCardDetail = ({detail})=>{
   return (
     <section className="md:w-1/2 md:min-w-[280px] grid md:justify-center gap-6 px-4 sm:pl-0">
       <div>
-        <h2 className="font-bold text-lg">Accommodation title</h2>
-        <p className="text-sm">State, City, Country</p>
-      </div>
-      <div>
-        <span></span>
-        <div>
-          <h4 className="font-bold">Hosted by</h4>
-          <span className="line text-sm">Host Name</span>
+        <h2 className="font-bold text-lg">{detail?.titulo}</h2>
+        <div className="flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 mr-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <p className="line-clamp-1 text-xs">
+            {detail?.estado}, {detail?.ciudad}, {detail?.pais}
+          </p>
         </div>
       </div>
       <div>
-        <h4 className="font-bold mb-4">Description</h4>
-        <p className="max-w-sm text-sm">
-          Lorem ipsum dolor sit amet consectetur, Magnam odio eveniet et cum,
-          nostrum fugiat accusantium, quidem reprehenderit ex officia
-          voluptatibus consequatur nihil!
-        </p>
+        <h4 className="font-bold mb-4">Descripción</h4>
+        <p className="max-w-sm text-sm">{detail?.descripcion}</p>
       </div>
-      <div>
-        <h4 className="font-bold mb-4">Services</h4>
-        <ul className="grid grid-cols-2 gap-5 text-base">
-          <li>
-            <span></span>
-            <span>0 Guests</span>
-          </li>
-          <li>
-            <span></span>
-            <span>Parking</span>
-          </li>
-          <li>
-            <span></span>
-            <span>Bedrooms</span>
-          </li>
-          <li>
-            <span></span>
-            <span>Wifi</span>
-          </li>
-        </ul>
-      </div>
+      <InfoDetailServices detail={detail}/>
       <div className="fixed sm:relative z-20 bottom-0 left-0 right-0 w-full bg-white flex items-center justify-between px-4 sm:px-2 pt-3 pb-5 border-gray border-t-[1px]">
         <section>
-          <span className="text-sm">From</span>
-          <h3 className="text-lg font-bold">
-            $100 <span className="text-sm font-normal">/ Night</span>
+          <span className="text-xs">Desde</span>
+          <h3 className="text-base font-bold">
+            ${detail?.tarifa}{' '}
+            <span className="text-xs font-normal">/ Noche</span>
           </h3>
         </section>
-        <button className="bg-green py-1 px-3 rounded-1xs text-white">
-          Reserve
+        <button className="bg-green py-1 px-3 rounded-2lg text-white">
+          Reservar
         </button>
       </div>
     </section>

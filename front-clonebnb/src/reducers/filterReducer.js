@@ -10,7 +10,7 @@ export const filterReducer = (state, action) => {
         ...state,
         search: action.payload
       };
-    case TYPES.RANGE:
+    case TYPES.CATEGORY:
       return {
         ...state,
         category: action.payload
