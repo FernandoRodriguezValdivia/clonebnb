@@ -1,11 +1,11 @@
 import { Categories } from "./Categories";
 import { Search } from "./Search";
 
-export const Filters = async ()=>{
+export const Filters = ()=>{
   return (
-    <section className="mb-6 gap-8 grid justify-center justify-items-center">
-      <Search/>
-      <Categories/>
+    <section className="w-full fixed top-36 sm:top-20 z-20 bg-white mb-6 gap-8 py-4 px-6 grid justify-items-center max-w-screen-2xl">
+      <Search />
+      <Categories />
     </section>
   );
 }

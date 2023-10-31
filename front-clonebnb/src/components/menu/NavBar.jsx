@@ -3,7 +3,7 @@ import { UserButton } from "./UserButton";
 
 export const NavBar = () => {
   return (
-    <nav className="p-2 max-w-screen-2xl bg-white flex flex-wrap gap-6 relative justify-between items-center mx-auto px-9 mt-8 mb-10">
+    <nav className="w-full fixed z-30 bg-white top-0 max-w-screen-2xl  flex flex-wrap gap-6 justify-between py-8 px-5 sm:p-8">
       <div className="flex w-56">
         <Link href="/">
           <div>
@@ -29,7 +29,7 @@ export const NavBar = () => {
           </div>
         </Link>
       </div>
-      <div className="flex gap-9 w-full sm:w-6/12 justify-between items-center">
+      <div className="flex gap-12 w-full sm:w-6/12 justify-between items-center">
         <div className="flex gap-2 items-center text-sm">
           <Link
             className="inline-block py-1 px-3 hover:bg-green hover:text-white hover:border-green rounded-2lg border transition duration-200 ease-linear"

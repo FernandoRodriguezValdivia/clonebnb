@@ -1,12 +1,7 @@
-'use client'
-
-
-import { useRouter } from "next/navigation"
-import { useEffect, useState } from "react"
-
-import { signIn } from "next-auth/react"
+import { SignupForm } from "@/components/signupForm/SignupForm";
 
 const SignUp = () => {
+<<<<<<< HEAD
 const router = useRouter()
 const initialValues = {email: '', password: '', confirmPassword: '' }
 const [formValues, setformValues] = useState(initialValues)
@@ -100,72 +95,11 @@ errors.email = 'El formato es invalido'
 }
 
 
+=======
+>>>>>>> fd5663dfa3d9632912b27cbbd9b20f06b5c71a8d
   return (
-    <>
-  
-<div className="bg-grey-lighter min-h-screen flex flex-col">
-            <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                    <h1 className="mb-8 text-3xl text-center">CloneBnB</h1>
-
-                  
-                
-                    <form onSubmit={handleSubmit}>
-
-
-
-<p className=" text-center text-red-400 mb-3"> {formErrors.email}</p>
-
-                    <input 
-                        type="text"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="email"
-                        placeholder="Email" 
-                        value={formValues.email}
-                        onChange={handleChange}
-                        
-                        />
-
-<p className=" text-center text-red-400 mb-3"> {formErrors.password}</p>
-                    <input 
-                        type="password"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="password"
-                        placeholder="Password"
-                        value={formValues.password}
-                        onChange={handleChange}
-                        
-                        
-                        />
-                        <p className="text-red-400 mt-3"> {formErrors.confirmPassword}</p>
-                    <input 
-                        type="password"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="confirmPassword"
-                        placeholder="Confirm Password"
-                        value={formValues.confirmPassword}
-                        onChange={handleChange}
-                        />
-
-
-
-                    <button
-                        type="submit"
-                        className="w-full text-center mt-8 py-3 rounded bg-green-500 text-black hover:bg-green-dark focus:outline-none my-1"
-                    >Create Account</button>
-
-            
-
-                    </form>
-                
-                
-                </div>
-
-          
-            </div>
-        </div>
-    </>
-  )
+    <SignupForm/>
+  );
 }
 
 export default SignUp

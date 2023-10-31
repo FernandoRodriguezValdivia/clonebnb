@@ -1,6 +1,6 @@
 export const ButtonCard = ()=>{
   return (
-    <button className="absolute z-20 top-2 right-2 rounded-2lg flex items-center justify-center bg-white text-brand-500 hover:cursor-pointer">
+    <button className="absolute z-10 top-5 sm:top-2 right-2 rounded-2lg flex items-center justify-center bg-white text-brand-500 hover:cursor-pointer">
       <div>
         <svg
           stroke="black"
