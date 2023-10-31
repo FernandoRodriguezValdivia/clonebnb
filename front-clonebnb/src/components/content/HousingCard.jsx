@@ -10,13 +10,13 @@ export const HousingCard = ({stay})=>{
         <ButtonCard />
       </div>
       <DescriptionCard stay={stay} />
-      <Link href="/detail" className="w-full h-full">
+      <Link href="/[id]" as={`${stay.id}`} className="w-full h-full">
         <div className="w-full h-full">
           <picture>
             <img
               className="object-cover h-full w-full"
               src={stay?.imagen[0].url}
-              alt={stay.titulo}
+              alt={stay?.titulo}
             />
           </picture>
         </div>

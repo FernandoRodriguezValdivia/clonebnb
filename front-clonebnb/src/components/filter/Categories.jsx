@@ -1,3 +1,6 @@
+import { ButtonAllCategories } from "./ButtonAllCategories";
+import { ButtonCategory } from "./ButtonCategory";
+
 async function getCategories() {
   const res = await fetch(
     'https://c14-04-m-node-react-production.up.railway.app/api/v1/category/getCategory',
@@ -12,19 +15,14 @@ async function getCategories() {
 }
 
 export const Categories = async () => {
-
   const response = await getCategories();
   const categories = response.data.categories;
 
   return (
-    <div className="w-full justify-self-start flex gap-5 mb-4 overflow-x-auto scroll-style">
+    <div className="w-full flex xl:justify-center gap-5 mb-4 overflow-x-auto scroll-style">
+      <ButtonAllCategories/>
       {categories.map((cat) => (
-        <button
-          key={cat.id}
-          className="flex flex-col gap-2 pt-3 pb-1 px-1 opacity-70 hover:opacity-100"
-        >
-          <span className="min-w-max text-xs font-bold">{cat.title}</span>
-        </button>
+        <ButtonCategory key={cat.id} cat={cat} />
       ))}
     </div>
   );

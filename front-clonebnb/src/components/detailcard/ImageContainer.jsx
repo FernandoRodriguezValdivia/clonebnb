@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ButtonCard } from "../content/ButtonCard";
 
-export const ImageContainer = ()=>{
+export const ImageContainer = ({detail})=>{
   return (
     <>
       <div className="flex relative w-full h-full aspect-square max-w-[656px] sm:max-h-[472px] md:rounded-r-1xs 2xl:rounded-1xs overflow-hidden">
@@ -29,15 +29,15 @@ export const ImageContainer = ()=>{
           </Link>
           <ButtonCard/>
         </div>
-        <span className="absolute z-10 bottom-3 right-4 rounded-2lg flex items-center justify-center bg-black text-white text-xs px-3 py-1 text-brand-500 hover:cursor-pointer">
+        <span className="absolute z-10 bottom-3 right-4 rounded-2lg flex items-center justify-center bg-black text-white text-xs px-3 py-1 text-brand-500">
           1 / 3
         </span>
         <div className="w-full h-full">
           <picture>
             <img
               className="object-cover w-full h-full"
-              src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=1530&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
+              src={detail?.images[0].url}
+              alt={detail?.titulo}
             />
           </picture>
         </div>

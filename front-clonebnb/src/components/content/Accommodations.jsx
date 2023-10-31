@@ -10,8 +10,7 @@ export const Accommodations = () => {
 
   const filterStays = housing.filter((stays) => {
     return (
-      (!filter.search || stays.titulo.toLowerCase().includes(filter.search.toLowerCase())) &&
-      (!filter.category || stays.category === filter.category)
+      (!filter.search || stays.titulo.toLowerCase().includes(filter.search.toLowerCase()))
     );
   });
 

@@ -3,6 +3,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import { HousingProvider } from '@/context/HousingProvider';
 import Providers from '@/components/providers/Providers';
+import { FilterProvider } from '@/context/FilterProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,9 +19,11 @@ export default function RootLayout({ children }) {
         <header className="flex justify-center">
           <NavBar />
         </header>
-        <HousingProvider>
-          <Providers>{children}</Providers>
-        </HousingProvider>
+        <FilterProvider>
+          <HousingProvider>
+            <Providers>{children}</Providers>
+          </HousingProvider>
+        </FilterProvider>
       </body>
     </html>
   );

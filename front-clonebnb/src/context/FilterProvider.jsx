@@ -12,7 +12,7 @@ export function useFilter() {
 export function FilterProvider({ children }) {
   const [filter, dispatchFilter] = useReducer(filterReducer, {
     search: '',
-    category: ''
+    category: 0
   });
 
   return (
