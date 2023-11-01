@@ -1,17 +1,28 @@
-
+'use client'
 import Link from "next/link";
 
 
 
 
 import { InfoDetailServices } from "./InfoDetailServices";
+import { useContext } from "react";
+import {ReservationProvider} from '../../context/ReservationProvider';
 
 export const InfoCardDetail = ({detail})=>{
+const num = useContext(ReservationProvider)
+
+console.log(num)
+
+
+
+
+
   return (
 
     
     
     <section className="md:w-1/2 md:min-w-[280px] grid md:justify-center gap-6 px-4 sm:pl-0">
+      
       <div>
         <h2 className="font-bold text-lg">{detail?.titulo}</h2>
         <div className="flex items-center">
@@ -47,9 +58,9 @@ export const InfoCardDetail = ({detail})=>{
           </h3>
         </section>
 
-        <Link href='/wishlist'>
+        <Link href='/trips'>
       
-        <button className="bg-green py-1 px-3 rounded-2lg text-white">
+        <button  className="bg-green py-1 px-3 rounded-2lg text-white">
           Reservar
         </button>
         </Link>

@@ -26,16 +26,14 @@ export const SignupForm = () => {
     setFormErrors(validate(formValues));
     setisSubmit(true);
 
-    const res = await fetch(
-      'https://c14-04-m-node-react-production.up.railway.app/api/v1/visitor/createVisitor',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formValues
-        })
-      }
-    );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_REGISTER_URL}/api/v1/user/createUser`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        ...formValues
+      }),
+
+  })
 
     const responseAPI = await res.json();
 
