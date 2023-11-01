@@ -55,7 +55,7 @@ wishRouter.get('/getWish', authorization, async (req, res) => {
     const wishList = wish.map(
       (item) =>
         new StayGetAll({
-          ...item.stay,
+          ...item.stay.toJSON(),
           imagen: item.stay.images,
         }),
     );
