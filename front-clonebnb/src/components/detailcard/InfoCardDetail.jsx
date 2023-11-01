@@ -1,28 +1,16 @@
 'use client'
+
 import Link from "next/link";
-
-
-
-
 import { InfoDetailServices } from "./InfoDetailServices";
-import { useContext } from "react";
-import {ReservationProvider} from '../../context/ReservationProvider';
+import { useReserve } from "@/context/ReserveProvider";
 
 export const InfoCardDetail = ({detail})=>{
-const num = useContext(ReservationProvider)
+  const {color} = useReserve()
 
-console.log(num)
-
-
-
-
+  console.log(color);
 
   return (
-
-    
-    
     <section className="md:w-1/2 md:min-w-[280px] grid md:justify-center gap-6 px-4 sm:pl-0">
-      
       <div>
         <h2 className="font-bold text-lg">{detail?.titulo}</h2>
         <div className="flex items-center">
@@ -48,7 +36,7 @@ console.log(num)
         <h4 className="font-bold mb-4">Descripción</h4>
         <p className="max-w-sm text-sm">{detail?.descripcion}</p>
       </div>
-      <InfoDetailServices detail={detail}/>
+      <InfoDetailServices detail={detail} />
       <div className="fixed sm:relative z-20 bottom-0 left-0 right-0 w-full bg-white flex items-center justify-between px-4 sm:px-2 pt-3 pb-5 border-gray border-t-[1px]">
         <section>
           <span className="text-xs">Desde</span>
@@ -58,14 +46,12 @@ console.log(num)
           </h3>
         </section>
 
-        <Link href='/trips'>
-      
-        <button  className="bg-green py-1 px-3 rounded-2lg text-white">
-          Reservar
-        </button>
+        <Link href="/trips">
+          <button className="bg-green py-1 px-3 rounded-2lg text-white">
+            Reservar
+          </button>
         </Link>
       </div>
-
     </section>
   );
 }

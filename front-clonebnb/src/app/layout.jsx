@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 import { HousingProvider } from '@/context/HousingProvider';
 import Providers from '@/components/providers/Providers';
 import { FilterProvider } from '@/context/FilterProvider';
-import {ReservationProvider} from '@/context/ReservationProvider';
+import { ReserveProvider } from '@/context/ReserveProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,16 +20,13 @@ export default function RootLayout({ children }) {
         <header className="flex justify-center">
           <NavBar />
         </header>
-        <FilterProvider>
-       
-
-
-          <HousingProvider>
-            <Providers>{children}</Providers>
-          </HousingProvider>
-      
-     
-        </FilterProvider>
+        <ReserveProvider>
+          <FilterProvider>
+              <HousingProvider>
+                <Providers>{children}</Providers>
+              </HousingProvider>
+          </FilterProvider>
+        </ReserveProvider>
       </body>
     </html>
   );
