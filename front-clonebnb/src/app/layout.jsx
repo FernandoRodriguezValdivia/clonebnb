@@ -16,14 +16,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="flex justify-center">
-          <NavBar />
-        </header>
-        <FilterProvider>
-          <HousingProvider>
-            <Providers>{children}</Providers>
-          </HousingProvider>
-        </FilterProvider>
+        <Providers>
+          <header className="flex justify-center">
+            <NavBar />
+          </header>
+          <FilterProvider>
+            <HousingProvider>
+              {/* <Providers>{children}</Providers> */}
+              {children}
+            </HousingProvider>
+          </FilterProvider>
+        </Providers>
       </body>
     </html>
   );
