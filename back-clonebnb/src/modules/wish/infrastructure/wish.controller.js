@@ -3,6 +3,7 @@ import { authorization } from '../../../middlewares/authorization.middleware.js'
 import { Wish } from './models/Wish.model.js';
 import { Stay } from '../../stay/infrastructure/models/Stay.model.js';
 import { Image } from '../../image/infrastructure/models/Image.model.js';
+import { StayGetAll } from '../../stay/domain/stayGetAll.class.js';
 
 export const wishRouter = Router();
 
@@ -43,6 +44,7 @@ wishRouter.get('/getWish', authorization, async (req, res) => {
           'pais',
           'estado',
           'ciudad',
+          'categoriaId',
         ],
         include: {
           model: Image,
@@ -50,7 +52,13 @@ wishRouter.get('/getWish', authorization, async (req, res) => {
         },
       },
     });
-    const wishList = wish.map((item) => item.stay);
+    const wishList = wish.map(
+      (item) =>
+        new StayGetAll({
+          ...item.stay,
+          imagen: item.stay.images,
+        }),
+    );
     res
       .status(201)
       .json({ status: 0, message: 'wish obtained', data: { wishList } });
