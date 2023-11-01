@@ -19,11 +19,13 @@ export default function RootLayout({ children }) {
         <header className="flex justify-center">
           <NavBar />
         </header>
-        <FilterProvider>
-          <HousingProvider>
-            <Providers>{children}</Providers>
-          </HousingProvider>
-        </FilterProvider>
+        <Providers>
+          <FilterProvider>
+            <HousingProvider>
+                {children}
+            </HousingProvider>
+          </FilterProvider>
+        </Providers>
       </body>
     </html>
   );
