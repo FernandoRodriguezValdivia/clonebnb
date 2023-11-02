@@ -9,7 +9,7 @@ export const ButtonCard = ({stay})=>{
     <button 
       className="absolute z-10 top-5 sm:top-2 right-2 rounded-2lg flex items-center justify-center bg-white text-brand-500 hover:cursor-pointer"
       onClick={() => {
-        if(stay.isFavorite){
+        if(stay?.isFavorite){
           removeWish(stay.id)
         } else {
           addWish(stay.id)
@@ -27,7 +27,7 @@ export const ButtonCard = ({stay})=>{
           className="w-8 h-8 p-1 hover:stroke-red "
         >
           <path
-            fill={stay.isFavorite ? 'red': 'none'}
+            fill={stay?.isFavorite ? 'red': 'none'}
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="32"
