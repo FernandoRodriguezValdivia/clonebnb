@@ -1,4 +1,5 @@
 import Image from "next/image";
+import "./style.css"
 
 export default function Home() {
 
@@ -70,7 +71,7 @@ export default function Home() {
 
             </div>
             <div className="relative mt-4">
-                <label title="Click to upload" htmlFor="button2" className="cursor-pointer flex items-center gap-4 px-6 py-4 before:border-gray-400/60 hover:before:border-gray-300 group dark:before:bg-darker dark:hover:before:border-gray-500 before:bg-gray-100 before:absolute before:inset-0 before:rounded-3xl before:border before:border-solid before:border-rounded before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95">
+                <label title="Click to upload" htmlFor="button2" className="image-form cursor-pointer flex items-center gap-4 px-6 py-4 before:border-gray-400/60 hover:before:border-gray-300 group dark:before:bg-darker dark:hover:before:border-gray-500 before:bg-gray-100 before:absolute before:inset-0 before:rounded-3xl before:border before:border-solid before:border-rounded before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95">
                   <div className="w-max relative">
                       <Image className="w-12" src="https://www.svgrepo.com/show/485545/upload-cicle.svg" alt="file upload icon" width="512" height="512" />
                   </div>
