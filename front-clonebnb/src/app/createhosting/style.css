@@ -1,0 +1,13 @@
+.image-form::before {
+  border-radius: 10px;
+  border-color: #AAAAAA;
+}
+.image-form.invalid::before {
+  border-radius: 10px;
+  border-color: red;
+}
+.text-image-form{
+  color: #AAAAAA;
+}
+input:focus:invalid { outline: solid red 2px; }
+textarea:focus:invalid { outline: solid red 2px; }
