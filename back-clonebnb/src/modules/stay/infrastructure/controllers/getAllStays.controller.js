@@ -35,9 +35,14 @@ export const getAll = async (req, res) => {
 
 export const createStay = async (req, res) => {
   const { id } = req;
-  const data = req.body;
+  const dataBody = req.body;
   const files = req.files;
-  // console.log(data);
+  const data = {
+    ...dataBody,
+    privado: dataBody.privado === 'true',
+    wifi: dataBody.wifi === 'true',
+    estacionamiento: dataBody.estacionamiento === 'true',
+  };
   try {
     if (
       isNaN(parseInt(data.categoriaId)) ||
