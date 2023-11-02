@@ -22,7 +22,6 @@ export default function RootLayout({ children }) {
           </header>
           <FilterProvider>
             <HousingProvider>
-              {/* <Providers>{children}</Providers> */}
               {children}
             </HousingProvider>
           </FilterProvider>

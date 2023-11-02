@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { UserButton } from "./UserButton";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 
-export const NavBar = () => {
+export const NavBar = async() => {
+  const session = await getServerSession(authOptions)
+  const token = session?.user?.data?.token
+
   return (
     <nav className="w-full fixed z-30 bg-white top-0 max-w-screen-2xl  flex flex-wrap gap-6 justify-between py-8 px-5 sm:p-8">
       <div className="flex w-56">
@@ -37,12 +42,15 @@ export const NavBar = () => {
           >
             Home
           </Link>
-          <Link
-            className="inline-block py-1 px-3 hover:bg-green hover:text-white hover:border-green rounded-2lg border transition duration-200 ease-linear"
-            href="/wishlist"
-          >
-            Wishlist
-          </Link>
+          {
+            token && 
+            <Link
+              className="inline-block py-1 px-3 hover:bg-green hover:text-white hover:border-green rounded-2lg border transition duration-200 ease-linear"
+              href="/wishlist"
+            >
+              Wishlist
+            </Link>
+          }
         </div>
         <div>
           <UserButton/>
