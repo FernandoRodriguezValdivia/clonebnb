@@ -1,21 +1,38 @@
 'use client'
 
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 import "./style.css"
+import { useHousing } from "@/context/HousingProvider";
+import { useRouter } from "next/navigation";
 
 export default function FormHosting() {
+  const router = useRouter()
+  const { resData } = useHousing()
+  const { data: session } = useSession()
+  const token = session?.user?.data?.token
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const formData = new FormData(e.target);
-    formData.set('wifi', (formData.get('wifi') === 'on').toString());
-    formData.set('estacionamiento', (formData.get('estacionamiento') === 'on').toString());
+    formData.set('wifi', formData.get('wifi') === 'on');
+    formData.set('estacionamiento', formData.get('estacionamiento') === 'on');
 
-    fetch( 'http://localhost:8000', {
+    fetch( 'https://c14-04-m-node-react-production.up.railway.app/api/v1/stays/createStay', {
+      headers: {
+        'Authorization': 'Bearer ' + token,
+      },
       method: 'POST',
       body: formData
     })
-    .then( data => console.log(data))
-
+    .then( data => data.json())
+    .then( data => {
+      resData()
+      router.push('/')
+    })
+    .catch( err => {
+      console.log(err)
+    })
   }
 
   return (
@@ -49,6 +66,7 @@ export default function FormHosting() {
             <label>
               <span className="text-sm pl-5 font-bold mt-4">¿Dónde está tu espacio?</span>
               <input
+                required
                 type="text"
                 className="text-sm outline outline-1 outline-gray py-2 pl-5 rounded-2lg w-full"
                 name="avenida"
@@ -59,6 +77,7 @@ export default function FormHosting() {
               <div>
                 <label>
                   <input
+                    required
                     type="text"
                     className="text-sm outline outline-1 outline-gray py-2 pl-5 rounded-2lg w-full"
                     name="pais"
@@ -69,6 +88,7 @@ export default function FormHosting() {
               <div>
               <label>
                 <input
+                  required
                   type="text"
                   className="text-sm outline outline-1 outline-gray py-2 pl-5 rounded-2lg w-full"
                   name="estado"
@@ -81,6 +101,7 @@ export default function FormHosting() {
               <div>
                 <label>
                   <input
+                    required
                     type="text"
                     className="text-sm outline outline-1 outline-gray py-2 pl-5 rounded-2lg w-full"
                     name="ciudad"
@@ -91,6 +112,7 @@ export default function FormHosting() {
               <div>
               <label>
                 <input
+                  required
                   type="text"
                   className="text-sm outline outline-1 outline-gray py-2 pl-5 rounded-2lg w-full"
                   name="postal"
@@ -111,13 +133,14 @@ export default function FormHosting() {
                       </span>
                   </div>
                 </label>
-                <input type="file" name="imagen1" id="imagen1" className="hidden"/>
+                <input required type="file" name="imagen1" id="imagen1" className=""/>
             </div>
             <div className="mt-4">
               <label className="flex flex-col">
                 <span className="text-sm pl-5 font-bold w-full">Tarifa por noche</span>
                 <div>
                   <input
+                    required
                     type="number"
                     className="text-sm outline outline-1 outline-gray py-2 pl-5 rounded-2lg w-full mt-2"
                     name="tarifa"
@@ -134,6 +157,7 @@ export default function FormHosting() {
                 <span className="text-sm pl-5 font-bold w-full">Número de habitaciones</span>
                 <div>
                   <input
+                    required
                     type="number"
                     className="text-sm outline outline-1 outline-gray py-2 pl-5 rounded-2lg w-full mt-2"
                     name="numeroHabitaciones"
@@ -150,7 +174,8 @@ export default function FormHosting() {
                 <span className="text-sm pl-5 font-bold w-full">Número de Personas</span>
                 <div>
                   <input
-                    type="text"
+                    required
+                    type="number"
                     className="text-sm outline outline-1 outline-gray py-2 pl-5 rounded-2lg w-full mt-2"
                     name="capacidad"
                     placeholder="0"
@@ -191,6 +216,7 @@ export default function FormHosting() {
               <div className="flex justify-between">
                 <div className="flex">
                   <input
+                    defaultChecked
                     type="radio"
                     className="text-sm pl-5 rounded-2lg"
                     name="privado"
@@ -219,10 +245,11 @@ export default function FormHosting() {
               <div className="flex justify-between mt-2">
                 <div className="flex">
                   <input
+                    defaultChecked
                     value={1}
                     type="radio"
                     className="text-sm pl-5 rounded-2lg"
-                    name="categoria"
+                    name="categoriaId"
                     style={{width: 20}}
                   />
                   <span className="text-sm font-bold ml-2">Casa de Campo</span>
@@ -233,7 +260,7 @@ export default function FormHosting() {
                     value={6}
                     type="radio"
                     className="text-sm pl-5 rounded-2lg"
-                    name="categoria"
+                    name="categoriaId"
                     style={{width: 20}}
                   />
                   <span className="text-sm font-bold ml-2">Habitación</span>
@@ -246,7 +273,7 @@ export default function FormHosting() {
                     value={2}
                     type="radio"
                     className="text-sm pl-5 rounded-2lg"
-                    name="categoria"
+                    name="categoriaId"
                     style={{width: 20}}
                   />
                   <span className="text-sm font-bold ml-2">Cabaña</span>
@@ -257,7 +284,7 @@ export default function FormHosting() {
                     value={7}
                     type="radio"
                     className="text-sm pl-5 rounded-2lg"
-                    name="categoria"
+                    name="categoriaId"
                     style={{width: 20}}
                   />
                   <span className="text-sm font-bold ml-2">Departamento</span>
@@ -270,7 +297,7 @@ export default function FormHosting() {
                     value={3}
                     type="radio"
                     className="text-sm pl-5 rounded-2lg"
-                    name="categoria"
+                    name="categoriaId"
                     style={{width: 20}}
                   />
                   <span className="text-sm font-bold ml-2">En la playa</span>
@@ -281,7 +308,7 @@ export default function FormHosting() {
                     value={8}
                     type="radio"
                     className="text-sm pl-5 rounded-2lg"
-                    name="categoria"
+                    name="categoriaId"
                     style={{width: 20}}
                   />
                   <span className="text-sm font-bold ml-2">Campamento</span>
@@ -294,7 +321,7 @@ export default function FormHosting() {
                     value={4}
                     type="radio"
                     className="text-sm pl-5 rounded-2lg"
-                    name="categoria"
+                    name="categoriaId"
                     style={{width: 20}}
                   />
                   <span className="text-sm font-bold ml-2">Frente al lago</span>
@@ -305,7 +332,7 @@ export default function FormHosting() {
                     value={9}
                     type="radio"
                     className="text-sm pl-5 rounded-2lg"
-                    name="categoria"
+                    name="categoriaId"
                     style={{width: 20}}
                   />
                   <span className="text-sm font-bold ml-2">Casa rodante</span>
@@ -318,7 +345,7 @@ export default function FormHosting() {
                     value={5}
                     type="radio"
                     className="text-sm pl-5 rounded-2lg"
-                    name="categoria"
+                    name="categoriaId"
                     style={{width: 20}}
                   />
                   <span className="text-sm font-bold ml-2">Minicasa</span>
@@ -329,7 +356,7 @@ export default function FormHosting() {
                     value={10}
                     type="radio"
                     className="text-sm pl-5 rounded-2lg"
-                    name="categoria"
+                    name="categoriaId"
                     style={{width: 20}}
                   />
                   <span className="text-sm font-bold ml-2">Con piscina</span>

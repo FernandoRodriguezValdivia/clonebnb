@@ -31,7 +31,7 @@ export const authOptions = {
 
           // console.log(user)
           
-          if (user.error) {
+          if (user.status !== 0) {
             throw new Error(user)
           }else{
             return user

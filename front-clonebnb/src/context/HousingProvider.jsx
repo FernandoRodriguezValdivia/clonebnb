@@ -25,6 +25,23 @@ export const HousingProvider =({children}) =>{
     dispatchHousing({ type: 'GET_DATA', payload: stays });
   }
   
+  const resData = async () => {
+    try {
+      setIsLoadingHousing(true)
+      const response = await fetch(
+        `https://c14-04-m-node-react-production.up.railway.app/api/v1/stays/getAllStays?page=1&size=20${
+          categoryId > 0 && `&category=${categoryId}`
+        }`
+      );
+      const data = await response.json();
+      setHousing(data.data.stays)
+    } catch (error) {
+      console.error('Error al obtener los datos:', error);
+    } finally {
+      setIsLoadingHousing(false)
+    }
+  };
+
   const getWishList = async () => {
     try {
       setIsLoadingWish(true)
@@ -92,22 +109,6 @@ export const HousingProvider =({children}) =>{
   },[token])
 
   useEffect(() => {
-    const resData = async () => {
-      try {
-        setIsLoadingHousing(true)
-        const response = await fetch(
-          `https://c14-04-m-node-react-production.up.railway.app/api/v1/stays/getAllStays?page=1&size=20${
-            categoryId > 0 && `&category=${categoryId}`
-          }`
-        );
-        const data = await response.json();
-        setHousing(data.data.stays)
-      } catch (error) {
-        console.error('Error al obtener los datos:', error);
-      } finally {
-        setIsLoadingHousing(false)
-      }
-    };
     resData();
   }, [categoryId]);
 
@@ -125,7 +126,7 @@ export const HousingProvider =({children}) =>{
   }, [ isLoadingHousing, isLoadingWish])
 
   return(
-    <HousingContext.Provider value={{housing, setHousing, wishList, removeWish, addWish}}>
+    <HousingContext.Provider value={{housing, setHousing, wishList, removeWish, addWish, resData}}>
       {children}
     </HousingContext.Provider>
   )

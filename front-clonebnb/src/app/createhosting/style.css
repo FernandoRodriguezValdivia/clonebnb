@@ -5,3 +5,5 @@
 .text-image-form{
   color: #AAAAAA;
 }
+input:focus:valid { outline: solid blue 2px; }
+input:focus:invalid { outline: solid red 2px; }
