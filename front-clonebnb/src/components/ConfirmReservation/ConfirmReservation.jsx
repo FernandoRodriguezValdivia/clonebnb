@@ -1,7 +1,36 @@
 'use client'
 
+import { useState } from 'react';
 
 const ConfirmReservation = () => {
+
+
+  const [formData, setFormData] = useState({ startDate: '', endDate: '', quantityVisitors: '', totalPrice: ''});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+
+    console.log(formData)
+  };
+ 
+  const handleSubmit = async (e) => {
+     e.preventDefault();
+     const response = await fetch('/', {
+       method: 'POST',
+       headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify(formData),
+     });
+    console.log(response)
+     if (response.ok) {
+       alert('Booking successfully created!');
+     } else {
+       alert('Error')
+     }
+    }
   return (
 
     <section className="max-w-sm rounded p-8 overflow-hidden shadow-lg">
@@ -28,16 +57,21 @@ const ConfirmReservation = () => {
       </div>
   
       
-    <div className="grid grid-cols-2 gap-5">
-        
+    <div >
+      <form className="grid grid-cols-2 gap-5" onSubmit={handleSubmit}>
+
+
+      
         <div>Fecha de inicio</div>
-        <div><input type="date" name="" id="" /></div>
+        <div><input  onChange={handleChange}
+  value={formData.startDate} type="date" name="" id="" /></div>
 
         
 
         
         <div>Fecha de salida </div>
-        <div><input type="date" name="" id="" /></div>
+        <div><input                 onChange={handleChange}
+ value={formData.endDate} type="date" name="" id="" /></div>
 
 
     
@@ -45,16 +79,16 @@ const ConfirmReservation = () => {
 
         
         <div>Cant. Pesonas</div>
-        <div ><input className=" p-2   rounded-lg focus:outline-none focus:ring focus:border-blue-300" placeholder="1" type="number" name="" id="" min={1} max={6} /></div>
+        <div ><input                 onChange={handleChange}
+value={formData.quantityVisitors} className=" p-2   rounded-lg focus:outline-none focus:ring focus:border-blue-300" placeholder="1" type="number" name="" id="" min={1} max={6} /></div>
 
 
            
-        <div>Total (USD)</div>
+        <div>Total {formData.totalPrice}</div>
         <div>$100</div>
 
 
-    </div>
-
+  </form>
     <div className="text-center">
 
         <button className="mt-6 bg-green py-1 px-3 rounded-1xs text-white">
@@ -62,10 +96,12 @@ const ConfirmReservation = () => {
         </button>
        
     </div>
-  
-    
 
-    </section>  )
+    </div>
+        
+    </section>  
+    
+  )
 }
 
 export default ConfirmReservation

@@ -10,10 +10,16 @@ export function useReserve() {
 
 export const ReserveProvider = ({ children }) => {
 
-  const [color, setColor] = useState('red');
+  const [getHome, setHome] = useState([]);
+
+
+  const addTo  = (property) =>{
+    
+
+  }
 
   return (
-    <ReserveContext.Provider value={{ color, setColor }}>
+    <ReserveContext.Provider value={{getHome, addTo}}>
       {children}
     </ReserveContext.Provider>
   );

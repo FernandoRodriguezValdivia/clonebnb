@@ -1,13 +1,22 @@
 'use client'
 
-import Link from "next/link";
+import { useState } from "react";
+//import Link from "next/link";
 import { InfoDetailServices } from "./InfoDetailServices";
-import { useReserve } from "@/context/ReserveProvider";
+import CustomModal from "../modal/modal";
 
 export const InfoCardDetail = ({detail})=>{
-  const {color} = useReserve()
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  console.log(color);
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+
 
   return (
     <section className="md:w-1/2 md:min-w-[280px] grid md:justify-center gap-6 px-4 sm:pl-0">
@@ -46,11 +55,19 @@ export const InfoCardDetail = ({detail})=>{
           </h3>
         </section>
 
-        <Link href="/trips">
-          <button className="bg-green py-1 px-3 rounded-2lg text-white">
+    
+        
+
+
+
+          <div className="text-center mt-16">
+          <button onClick={openModal} className="bg-green py-1 px-3 rounded-2lg text-white">
             Reservar
           </button>
-        </Link>
+      <CustomModal isOpen={modalIsOpen} closeModal={closeModal} />
+    </div>
+
+      
       </div>
     </section>
   );
