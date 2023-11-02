@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials"
 
-const authOptions = {
+export const authOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -13,7 +13,7 @@ const authOptions = {
 
       async authorize(credentials, req) {
       
-        const url = 'https://c14-04-m-node-react-production.up.railway.app/api/v1/visitor/loginVisitor'
+        const url = `${process.env.NEXT_PUBLIC_LOGIN_URL}/api/v1/user/loginUser`
           const res = await fetch(url,  {
             method: 'POST',
             body: JSON.stringify({
@@ -31,7 +31,7 @@ const authOptions = {
 
           // console.log(user)
           
-          if (user.error) {
+          if (user.status !== 0) {
             throw new Error(user)
           }else{
             return user
@@ -44,7 +44,15 @@ const authOptions = {
     }),
   ],
 
-
+  callbacks: {
+    async jwt({ token, user }) {
+      return { ...token, ...user };
+    },
+    async session({ session, token, user }) {
+      session.user = token;
+      return session;
+    },
+  },
   
   pages: {
     signIn: '/login',

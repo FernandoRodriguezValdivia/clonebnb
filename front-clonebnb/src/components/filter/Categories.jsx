@@ -19,10 +19,10 @@ export const Categories = async () => {
   const categories = response.data.categories;
 
   return (
-    <div className="w-full flex xl:justify-center gap-5 mb-4 overflow-x-auto scroll-style">
+    <div className="w-full flex xl:justify-center gap-5 mb-1 overflow-x-auto scroll-style">
       <ButtonAllCategories/>
       {categories.map((cat) => (
-        <ButtonCategory key={cat.id} cat={cat} />
+        <ButtonCategory key={cat.id} cat={cat}/>
       ))}
     </div>
   );

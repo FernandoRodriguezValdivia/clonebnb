@@ -1,7 +1,9 @@
+import Link from "next/link";
 import { InfoDetailServices } from "./InfoDetailServices";
 
 export const InfoCardDetail = ({detail})=>{
   return (
+    
     <section className="md:w-1/2 md:min-w-[280px] grid md:justify-center gap-6 px-4 sm:pl-0">
       <div>
         <h2 className="font-bold text-lg">{detail?.titulo}</h2>
@@ -37,10 +39,13 @@ export const InfoCardDetail = ({detail})=>{
             <span className="text-xs font-normal">/ Noche</span>
           </h3>
         </section>
-        <button className="bg-green py-1 px-3 rounded-2lg text-white">
-          Reservar
+        <Link href='/wishlist'>
+        <button className="bg-green py-1 px-3 rounded-1xs text-white">
+          Reserve
         </button>
+        </Link>
       </div>
+
     </section>
   );
 }

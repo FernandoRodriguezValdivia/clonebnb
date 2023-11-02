@@ -23,19 +23,21 @@ export const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
+    if(Object.keys(validate(formValues)).length > 0) return
 
     // Assuming you have a valid 'validate' function
     const responseNextAuth = await signIn('credentials', {
       email: formValues.email,
       password: formValues.password,
-      redirect: false
+      redirect: true,
+      callbackUrl: "/",
     });
 
     if (responseNextAuth?.error) {
       setErrors(responseNextAuth.error.split(','));
       return;
     }
-    router.push('/');
+    // router.push('/');
   };
 
   const validate = (values) => {
