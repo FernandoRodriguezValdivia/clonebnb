@@ -1,12 +1,12 @@
 'use client'
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 
 export const LoginForm = () => {
-  const router = useRouter();
+  const searchParams = useSearchParams()
   const initialValues = { email: '', password: '' };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
@@ -60,6 +60,14 @@ export const LoginForm = () => {
 
     return errors;
   };
+
+  if(searchParams.get('error') === 'Data incorrect') {
+    if(typeof window !== 'undefined'){
+      console.log('aca')
+      window.location.replace('/login')
+      alert('Email o contraseña incorrecto')
+    }
+  }
 
   return (
     <section className="flex justify-center mt-40 sm:mt-36">

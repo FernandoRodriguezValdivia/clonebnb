@@ -98,7 +98,6 @@ errors.email = 'El formato es invalido'
 }
 
 
-
   return (
     <SignupForm/>
   );

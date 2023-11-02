@@ -95,7 +95,7 @@ export const HousingProvider =({children}) =>{
       });
       await getWishList()
     } else {
-      alert('inicie sesion')
+      alert('Primero debe iniciar sesión')
     }
   }
 

@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import { HousingProvider } from '@/context/HousingProvider';
 import Providers from '@/components/providers/Providers';
 import { FilterProvider } from '@/context/FilterProvider';
+import { ReserveProvider } from '@/context/ReserveProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 
