@@ -7,7 +7,7 @@ export const HousingCard = ({stay})=>{
   return (
     <div className="flex justify-center w-full h-full aspect-square relative rounded-1xs overflow-hidden">
       <div className="absolute -top-3 right-0 sm:top-0">
-        <ButtonCard />
+        <ButtonCard stay={stay}/>
       </div>
       <DescriptionCard stay={stay} />
       <Link href="/[id]" as={`${stay.id}`} className="w-full h-full">
