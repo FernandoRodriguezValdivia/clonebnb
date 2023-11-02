@@ -16,6 +16,12 @@ export const UserNav = ()=>{
           Tus Viajes
         </Link>
         }
+        {
+          session &&
+          <Link className="text-sm text-left py-2 px-3 hover:bg-opacity" href="/wishlist">
+            Tu Lista de Deseados
+          </Link>
+        }
         <ButtonSignup />
         <ButtonAuth />
       </div>
