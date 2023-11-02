@@ -1,19 +1,11 @@
-<<<<<<< HEAD
-import Link from "next/link";
-=======
 'use client'
 
 import { useState } from "react";
 //import Link from "next/link";
->>>>>>> reservacion
 import { InfoDetailServices } from "./InfoDetailServices";
 import CustomModal from "../modal/modal";
 
 export const InfoCardDetail = ({detail})=>{
-<<<<<<< HEAD
-  return (
-    
-=======
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => {
@@ -27,7 +19,6 @@ export const InfoCardDetail = ({detail})=>{
 
 
   return (
->>>>>>> reservacion
     <section className="md:w-1/2 md:min-w-[280px] grid md:justify-center gap-6 px-4 sm:pl-0">
       <div>
         <h2 className="font-bold text-lg">{detail?.titulo}</h2>
@@ -63,15 +54,6 @@ export const InfoCardDetail = ({detail})=>{
             <span className="text-xs font-normal">/ Noche</span>
           </h3>
         </section>
-<<<<<<< HEAD
-        <Link href='/wishlist'>
-        <button className="bg-green py-1 px-3 rounded-1xs text-white">
-          Reserve
-        </button>
-        </Link>
-      </div>
-=======
->>>>>>> reservacion
 
     
         

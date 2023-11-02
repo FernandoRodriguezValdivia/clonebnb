@@ -15,17 +15,8 @@ export const Accommodations = () => {
   });
 
   return (
-<<<<<<< HEAD
     <section className="relative grid grid-cols-auto gap-6 justify-items-center mt-44">
       {filterStays.length === 0 && <p className="line-clamp-1 min-w-[200px]">No se encontraron resultados</p>}
-=======
-    <section className="relative grid grid-cols-auto gap-6 justify-items-center mt-36">
-      {filterStays.length === 0 && (
-        <p className="line-clamp-1 min-w-[200px]">
-          No se encontraron resultados
-        </p>
-      )}
->>>>>>> reservacion
       {filterStays.map((stay) => (
         <HousingCard key={stay.id} stay={stay} />
       ))}

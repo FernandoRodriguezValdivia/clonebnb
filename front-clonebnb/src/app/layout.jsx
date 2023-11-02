@@ -17,7 +17,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-<<<<<<< HEAD
         <Providers>
           <header className="flex justify-center">
             <NavBar />
@@ -28,18 +27,6 @@ export default function RootLayout({ children }) {
             </HousingProvider>
           </FilterProvider>
         </Providers>
-=======
-        <header className="flex justify-center">
-          <NavBar />
-        </header>
-        <ReserveProvider>
-          <FilterProvider>
-              <HousingProvider>
-                <Providers>{children}</Providers>
-              </HousingProvider>
-          </FilterProvider>
-        </ReserveProvider>
->>>>>>> reservacion
       </body>
     </html>
   );

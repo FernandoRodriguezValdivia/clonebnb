@@ -6,17 +6,12 @@ body {
   background-color: '#FEFEFF';
 }
 
-<<<<<<< HEAD
-.scroll-style::-webkit-scrollbar {
-  height: 0px;
-=======
 
 /* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
   
   }
->>>>>>> reservacion
 }
 
 @media screen and (min-width: 890px) {
@@ -33,8 +28,6 @@ body {
 <<<<<<< HEAD
 >>>>>>> 530eb0cb1cda477a21a7d079e6420f2a7f5e7421
 } */
-
->>>>>>> reservacion
 
 .scroll-style::-webkit-scrollbar-thumb {
   background-color: #1f1f1f48;
