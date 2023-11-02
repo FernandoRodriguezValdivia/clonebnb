@@ -34,24 +34,7 @@ export const NavBar = async() => {
           </div>
         </Link>
       </div>
-      <div className="flex gap-12 w-full sm:w-6/12 justify-between items-center">
-        <div className="flex gap-2 items-center text-sm">
-          <Link
-            className="inline-block py-1 px-3 hover:bg-green hover:text-white hover:border-green rounded-2lg border transition duration-200 ease-linear"
-            href="/"
-          >
-            Home
-          </Link>
-          {
-            token && 
-            <Link
-              className="inline-block py-1 px-3 hover:bg-green hover:text-white hover:border-green rounded-2lg border transition duration-200 ease-linear"
-              href="/wishlist"
-            >
-              Wishlist
-            </Link>
-          }
-        </div>
+      <div className="flex gap-12 w-full sm:w-6/12 justify-end items-center">
         <div>
           <UserButton/>
         </div>

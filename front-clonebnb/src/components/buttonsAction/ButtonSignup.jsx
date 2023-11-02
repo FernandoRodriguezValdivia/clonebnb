@@ -9,11 +9,12 @@ export default function ButtonSignup() {
   if (session) {
     return (
       <>
-        <button
+        <Link
+          href="/createhosting"
           className="text-sm text-left py-2 px-3 hover:bg-opacity"
         >
           Crear un alojamiento
-        </button>
+        </Link>
       </>
     );
   }
