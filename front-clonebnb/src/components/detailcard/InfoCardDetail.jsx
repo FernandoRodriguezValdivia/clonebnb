@@ -3,10 +3,9 @@ import { InfoDetailServices } from "./InfoDetailServices";
 
 export const InfoCardDetail = ({detail})=>{
   return (
-    
     <section className="md:w-1/2 md:min-w-[280px] grid md:justify-center gap-6 px-4 sm:pl-0">
       <div>
-        <h2 className="font-bold text-lg">{detail?.titulo}</h2>
+        <h2 className="font-bold text-lg max-w-sm">{detail?.titulo}</h2>
         <div className="flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +29,7 @@ export const InfoCardDetail = ({detail})=>{
         <h4 className="font-bold mb-4">Descripción</h4>
         <p className="max-w-sm text-sm">{detail?.descripcion}</p>
       </div>
-      <InfoDetailServices detail={detail}/>
+      <InfoDetailServices detail={detail} />
       <div className="fixed sm:relative z-20 bottom-0 left-0 right-0 w-full bg-white flex items-center justify-between px-4 sm:px-2 pt-3 pb-5 border-gray border-t-[1px]">
         <section>
           <span className="text-xs">Desde</span>
@@ -39,13 +38,12 @@ export const InfoCardDetail = ({detail})=>{
             <span className="text-xs font-normal">/ Noche</span>
           </h3>
         </section>
-        <Link href='/wishlist'>
-        <button className="bg-green py-1 px-3 rounded-1xs text-white">
-          Reserve
-        </button>
+        <Link href="/wishlist">
+          <button className="bg-green py-1 px-3 rounded-1xs text-white">
+            Reservar
+          </button>
         </Link>
       </div>
-
     </section>
   );
 }
