@@ -1,9 +1,33 @@
+<<<<<<< HEAD
 import Link from "next/link";
+=======
+'use client'
+
+import { useState } from "react";
+//import Link from "next/link";
+>>>>>>> reservacion
 import { InfoDetailServices } from "./InfoDetailServices";
+import CustomModal from "../modal/modal";
 
 export const InfoCardDetail = ({detail})=>{
+<<<<<<< HEAD
   return (
     
+=======
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+
+
+  return (
+>>>>>>> reservacion
     <section className="md:w-1/2 md:min-w-[280px] grid md:justify-center gap-6 px-4 sm:pl-0">
       <div>
         <h2 className="font-bold text-lg">{detail?.titulo}</h2>
@@ -30,7 +54,7 @@ export const InfoCardDetail = ({detail})=>{
         <h4 className="font-bold mb-4">Descripción</h4>
         <p className="max-w-sm text-sm">{detail?.descripcion}</p>
       </div>
-      <InfoDetailServices detail={detail}/>
+      <InfoDetailServices detail={detail} />
       <div className="fixed sm:relative z-20 bottom-0 left-0 right-0 w-full bg-white flex items-center justify-between px-4 sm:px-2 pt-3 pb-5 border-gray border-t-[1px]">
         <section>
           <span className="text-xs">Desde</span>
@@ -39,13 +63,30 @@ export const InfoCardDetail = ({detail})=>{
             <span className="text-xs font-normal">/ Noche</span>
           </h3>
         </section>
+<<<<<<< HEAD
         <Link href='/wishlist'>
         <button className="bg-green py-1 px-3 rounded-1xs text-white">
           Reserve
         </button>
         </Link>
       </div>
+=======
+>>>>>>> reservacion
 
+    
+        
+
+
+
+          <div className="text-center mt-16">
+          <button onClick={openModal} className="bg-green py-1 px-3 rounded-2lg text-white">
+            Reservar
+          </button>
+      <CustomModal isOpen={modalIsOpen} closeModal={closeModal} />
+    </div>
+
+      
+      </div>
     </section>
   );
 }
