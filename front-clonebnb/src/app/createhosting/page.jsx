@@ -76,13 +76,216 @@ export default function Home() {
                       <Image className="w-12" src="https://www.svgrepo.com/show/485545/upload-cicle.svg" alt="file upload icon" width="512" height="512" />
                   </div>
                   <div className="relative">
-                      <span className="block text-base font-semibold relative text-blue-900 group-hover:text-blue-500">
+                      <span className="text-image-form block text-base font-semibold relative text-blue-900 group-hover:text-blue-500">
                         Seleccione una imagen
                       </span>
                   </div>
                 </label>
                 <input type="file" name="button2" id="button2" className="hidden"/>
             </div>
+            <div className="mt-4">
+              <label htmlFor="email" className="flex flex-col">
+                <span className="text-sm pl-5 font-bold w-full">Tarifa por noche</span>
+                <div>
+                  <input
+                    type="text"
+                    className="text-sm outline outline-1 outline-gray py-2 pl-5 rounded-2lg w-full mt-2"
+                    name="email"
+                    placeholder="0"
+                    style={{maxWidth: 100}}
+                  />
+                  <span className="text-sm font-bold ml-2">USD / Noche</span>
+                </div>
+              </label>
+            </div>
+
+            <div className="mt-4">
+              <label htmlFor="email" className="flex flex-col">
+                <span className="text-sm pl-5 font-bold w-full">Número de habitaciones</span>
+                <div>
+                  <input
+                    type="text"
+                    className="text-sm outline outline-1 outline-gray py-2 pl-5 rounded-2lg w-full mt-2"
+                    name="email"
+                    placeholder="0"
+                    style={{maxWidth: 100}}
+                  />
+                  <span className="text-sm font-bold ml-2">Personas</span>
+                </div>
+              </label>
+            </div>
+
+            <div className="mt-4">
+              <span className="text-sm pl-5 font-bold w-full">Servicios de tu espacio</span>
+              <div className="flex justify-between">
+                <div className="flex">
+                  <input
+                    type="checkbox"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="email"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">Wifi</span>
+                </div>
+
+                <div className="flex">
+                  <input
+                    type="checkbox"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="email"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">Estacionamiento</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4">
+              <span className="text-sm pl-5 font-bold w-full">Tu espacio es</span>
+              <div className="flex justify-between">
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="private"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">Privado</span>
+                </div>
+
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="private"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">Compartido</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4">
+              <span className="text-sm pl-5 font-bold w-full">Que tipo de espacio es</span>
+
+              <div className="flex justify-between mt-2">
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="type"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">Casa de Campo</span>
+                </div>
+
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="type"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">Habitación</span>
+                </div>
+              </div>
+
+              <div className="flex justify-between mt-2">
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="type"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">Cabaña</span>
+                </div>
+
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="type"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">Departamento</span>
+                </div>
+              </div>
+
+              <div className="flex justify-between mt-2">
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="type"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">En la playa</span>
+                </div>
+
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="type"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">Campamento</span>
+                </div>
+              </div>
+
+              <div className="flex justify-between mt-2">
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="type"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">Frente al lago</span>
+                </div>
+
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="type"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">Casa rodante</span>
+                </div>
+              </div>
+
+              <div className="flex justify-between mt-2">
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="type"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">Minicasa</span>
+                </div>
+
+                <div className="flex">
+                  <input
+                    type="radio"
+                    className="text-sm pl-5 rounded-2lg"
+                    name="type"
+                    style={{width: 20}}
+                  />
+                  <span className="text-sm font-bold ml-2">Con piscina</span>
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              className="m-auto text-sm mt-7 px-4 py-2 rounded bg-green text-white rounded-2lg hover:bg-black focus:outline-none"
+            >
+              Guardar
+            </button>
+
           </form>
         </div>
       </main>
