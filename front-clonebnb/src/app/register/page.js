@@ -1,8 +1,12 @@
 'use client'
 import { SignupForm } from "@/components/signupForm/SignupForm";
 import { useRouter } from "next/navigation";
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 
+=======
+import { useState, useEffect } from "react";
+>>>>>>> reservacion
 const SignUp = () => {
 
 const router = useRouter()
@@ -98,7 +102,10 @@ errors.email = 'El formato es invalido'
 }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> reservacion
   return (
     <SignupForm/>
   );

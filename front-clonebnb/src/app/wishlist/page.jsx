@@ -5,6 +5,7 @@ import { HousingCard } from "@/components/content/HousingCard";
 import { useHousing } from "@/context/HousingProvider";
 
 export default function Wishlist(){
+<<<<<<< HEAD
   const { wishList } = useHousing()
 
   if( wishList.length > 0 ){
@@ -18,6 +19,13 @@ export default function Wishlist(){
     </section>
     )
   }
+=======
+  return (
+
+    <section className="grid grid-cols-auto gap-6 justify-items-center mt-36">
+
+      <p>Without accommodations :/</p>
+>>>>>>> reservacion
 
   return (
     <section className="grid justify-items-center mt-36">
