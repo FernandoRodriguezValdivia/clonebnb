@@ -2,27 +2,30 @@
 
 import { useFilter } from '@/context/FilterProvider';
 import { TYPES } from '@/reducers/filterReducer';
+import { MdOutlineOtherHouses } from 'react-icons/md';
 
 export const ButtonAllCategories = () => {
   const { filter, dispatchFilter } = useFilter();
 
   const categoryFiltered = (e) => {
     const category = e.target.value;
-    dispatchFilter({ type: TYPES.CATEGORY, payload: category });
+    const allCategories = parseInt(category)
+    dispatchFilter({ type: TYPES.CATEGORY, payload: allCategories });
     e.preventDefault();
   };
 
-  const catAll = parseInt(filter.category);
+  const catAll = filter.category;
 
   return (
     <button
-      className={`min-w-max text-center flex gap-2 pt-3 pb-1 px-1 opacity-70 text-xs font-bold hover:opacity-100 ${
-        catAll === 0 && 'opacity-100'
+      className={`grid grid-rows-2 justify-items-center gap-2 min-w-max text-center pt-3 px-1 text-xs font-semibold hover:opacity-100 ${
+        catAll === 0 ? 'opacity-100' : 'opacity-60'
       }`}
       type="button"
       onClick={categoryFiltered}
       value={0}
     >
+      <MdOutlineOtherHouses className="text-[1.4rem] pointer-events-none" />
       Todos
     </button>
   );

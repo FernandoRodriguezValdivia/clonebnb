@@ -29,9 +29,9 @@ export const ImageContainer = ({detail})=>{
           </Link>
           {/* <ButtonCard/> */}
         </div>
-        <span className="absolute z-10 bottom-3 right-4 rounded-2lg flex items-center justify-center bg-black text-white text-xs px-3 py-1 text-brand-500">
+        {/* <span className="absolute z-10 bottom-3 right-4 rounded-2lg flex items-center justify-center bg-black text-white text-xs px-3 py-1 text-brand-500">
           1 / 3
-        </span>
+        </span> */}
         <div className="w-full h-full">
           <picture>
             <img
