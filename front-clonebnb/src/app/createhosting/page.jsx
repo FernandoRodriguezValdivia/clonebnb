@@ -5,10 +5,13 @@ import { useSession } from "next-auth/react";
 import "./style.css"
 import { useHousing } from "@/context/HousingProvider";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function FormHosting() {
   const router = useRouter()
   const { resData } = useHousing()
+  const [ imagen, setImagen ] = useState('')
+  const [ errorImagen, setErrorImagen ] = useState(false)
   const { data: session } = useSession()
   const token = session?.user?.data?.token
 
@@ -17,7 +20,10 @@ export default function FormHosting() {
     const formData = new FormData(e.target);
     formData.set('wifi', formData.get('wifi') === 'on');
     formData.set('estacionamiento', formData.get('estacionamiento') === 'on');
-
+    if(!imagen){
+      setErrorImagen(true)
+    return
+    }
     fetch( 'https://c14-04-m-node-react-production.up.railway.app/api/v1/stays/createStay', {
       headers: {
         'Authorization': 'Bearer ' + token,
@@ -123,17 +129,19 @@ export default function FormHosting() {
 
             </div>
             <div className="relative mt-4">
-                <label title="Click to upload" htmlFor="imagen1" className="image-form cursor-pointer flex items-center gap-4 px-6 py-4 before:border-gray-400/60 hover:before:border-gray-300 group dark:before:bg-darker dark:hover:before:border-gray-500 before:bg-gray-100 before:absolute before:inset-0 before:rounded-3xl before:border before:border-solid before:border-rounded before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95">
+                <label title="Click to upload" htmlFor="imagen1" className={`image-form${imagen || !errorImagen ? '' : ' invalid'} cursor-pointer flex items-center gap-4 px-6 py-4 before:border-gray-400/60 hover:before:border-gray-300 group dark:before:bg-darker dark:hover:before:border-gray-500 before:bg-gray-100 before:absolute before:inset-0 before:rounded-3xl before:border before:border-solid before:border-rounded before:transition-transform before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95`}>
                   <div className="w-max relative">
                       <Image className="w-12" src="https://www.svgrepo.com/show/485545/upload-cicle.svg" alt="file upload icon" width="512" height="512" />
                   </div>
                   <div className="relative">
                       <span className="text-image-form block text-base font-semibold relative text-blue-900 group-hover:text-blue-500">
-                        Seleccione una imagen
+                        {imagen ? imagen.split("\\").pop() : 'Seleccione una imagen' }
                       </span>
                   </div>
                 </label>
-                <input required type="file" name="imagen1" id="imagen1" className=""/>
+                <input type="file" name="imagen1" id="imagen1" className="hidden" value={imagen} onChange={(e) => {
+                  setImagen(e.target.value)
+                }}/>
             </div>
             <div className="mt-4">
               <label className="flex flex-col">

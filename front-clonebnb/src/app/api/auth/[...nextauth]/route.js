@@ -32,7 +32,7 @@ export const authOptions = {
           // console.log(user)
           
           if (user.status !== 0) {
-            throw new Error(user)
+            throw new Error(user.message)
           }else{
             return user
           }
@@ -56,6 +56,7 @@ export const authOptions = {
   
   pages: {
     signIn: '/login',
+    error: '/login',
   },
 }
 
