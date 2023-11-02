@@ -20,7 +20,7 @@ export const HousingProvider =({children}) =>{
     const resData = async () => {
       try {
         const response = await fetch(
-          `https://c14-04-m-node-react-production.up.railway.app/api/v1/stays/getAllStays?page=1&size=10${
+          `https://c14-04-m-node-react-production.up.railway.app/api/v1/stays/getAllStays?page=1&size=20${
             categoryId > 0 && `&category=${categoryId}`
           }`
         );
