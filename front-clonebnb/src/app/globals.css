@@ -6,12 +6,8 @@ body {
   background-color: '#FEFEFF';
 }
 
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-  
-  }
+.scroll-style::-webkit-scrollbar {
+  height: 0;
 }
 
 @media screen and (min-width: 890px) {
@@ -22,12 +18,7 @@ body {
 
 .scroll-style::-webkit-scrollbar-track {
   background-color: none;
-<<<<<<< HEAD
 }
-=======
-<<<<<<< HEAD
->>>>>>> 530eb0cb1cda477a21a7d079e6420f2a7f5e7421
-} */
 
 .scroll-style::-webkit-scrollbar-thumb {
   background-color: #1f1f1f48;
