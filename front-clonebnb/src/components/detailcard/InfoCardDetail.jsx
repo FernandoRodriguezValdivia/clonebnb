@@ -64,7 +64,10 @@ export const InfoCardDetail = ({detail})=>{
           <button onClick={openModal} className="bg-green py-1 px-3 rounded-2lg text-white">
             Reservar
           </button>
-      <CustomModal isOpen={modalIsOpen} closeModal={closeModal} />
+          {
+            modalIsOpen &&
+            <CustomModal closeModal={closeModal} detail={detail}/>
+          }
     </div>
 
       
