@@ -18,8 +18,8 @@ export const TripCard = ({trip}) => {
   return (
     <div className="min-w-sm grid gap-4 items-center px-6 py-3 outline outline-1 outline-opacity shadow-md border-l-[3px] border-green">
       <div className="flex justify-between border-b border-opacity pb-2">
-        <span className="text-xs text-gray">Check in</span>
-        <span className="text-xs text-gray">Check out</span>
+        <span className="text-xs text-gray">Llegada</span>
+        <span className="text-xs text-gray">Salida</span>
       </div>
       <div className="flex justify-between gap-8 border-b border-opacity pb-4">
         <div>
@@ -43,10 +43,10 @@ export const TripCard = ({trip}) => {
       </div>
       <div className="flex justify-between items-center">
         <span className="text-xs font-medium">
-          Total price: $<span className="text-base"> {trip.price}</span>
+          Total: $<span className="text-base"> {trip.price}</span>
         </span>
         <span className="text-xs font-medium">
-          Persons: <span className="text-base">{trip.persons}</span>
+          Personas: <span className="text-base">{trip.persons}</span>
         </span>
       </div>
     </div>
