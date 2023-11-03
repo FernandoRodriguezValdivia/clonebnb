@@ -113,7 +113,6 @@ const ConfirmReservation = ({ detail, closeModal }) => {
  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData)
     if( error.endDate.length > 0 || error.startDate.length > 0 || error.quantityVisitors.length > 0){
       setIsSend(true)
       return
@@ -147,19 +146,6 @@ const ConfirmReservation = ({ detail, closeModal }) => {
     } else {
       alert("Ocurrió un error, por favor inténtelo más tarde")
     }
-    
-    //  if( error.endDate || error.startDate)
-    //  const response = await fetch('/', {
-    //    method: 'POST',
-    //    headers: { 'Content-Type': 'application/json' },
-    //    body: JSON.stringify(formData),
-    //  });
-    // console.log(response)
-    //  if (response.ok) {
-    //    alert('Booking successfully created!');
-    //  } else {
-    //    alert('Error')
-    //  }
     }
   
   useEffect(() => {

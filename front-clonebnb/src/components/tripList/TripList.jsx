@@ -11,27 +11,59 @@ export const TripList = () => {
   const [trips, setTrips] = useState([]);
 
   useEffect(()=>{
-    const getTrips = async () => {
-      try {
-        const response = await fetch(
-          'https://c14-04-m-node-react-production.up.railway.app/api/v1/reservation/getAllReservationByVisitor',
-          {
-            method: 'GET',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-              Authorization: 'Bearer ' + token
-            }
-          }
-        );
-        const data = await response.json();
-        const reservations = data.data.reservations
-        setTrips(reservations);
-      } catch (error) {
-        console.error('Error al obtener los datos:', error);
+    if(token){
+      function convertirFecha(fecha) {
+        // Parsea la fecha del formato "YYYY-MM-DD"
+        const fechaParseada = new Date(fecha);
+        fechaParseada.setDate(fechaParseada.getDate() + 1);
+      
+        // Obtiene los componentes de la fecha
+        const año = fechaParseada.getFullYear();
+        const mes = String(fechaParseada.getMonth() + 1).padStart(2, '0'); // Mes va de 0 a 11
+        const dia = String(fechaParseada.getDate()).padStart(2, '0');
+        const horas = String(fechaParseada.getHours()).padStart(2, '0');
+        const minutos = String(fechaParseada.getMinutes()).padStart(2, '0');
+        const segundos = String(fechaParseada.getSeconds()).padStart(2, '0');
+      
+        // Obtiene el offset de zona horaria en minutos y lo convierte a horas
+        const offset = -fechaParseada.getTimezoneOffset() / 60;
+      
+        // Construye la cadena de fecha en el formato deseado
+        const fechaFormateada = `${año}-${mes}-${dia}T${horas}:${minutos}:${segundos}.000${offset >= 0 ? '+' : '-'}${String(Math.abs(offset)).padStart(2, '0')}:00`;
+      
+        return fechaFormateada;
       }
-    };
-    getTrips()
+
+      const getTrips = async () => {
+        try {
+          const response = await fetch(
+            'https://c14-04-m-node-react-production.up.railway.app/api/v1/reservation/getAllReservationByVisitor',
+            {
+              method: 'GET',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
+              }
+            }
+          );
+          const data = await response.json();
+          const reservations = data.data.reservations
+          setTrips(reservations.map( reservation => {
+            const newReservation = {
+              id: reservation.id,
+              checkin: convertirFecha(reservation.startDate),
+              checkout: convertirFecha(reservation.endDate),
+              persons: reservation.quantityVisitors,
+              price: reservation.totalPrice
+            }
+            return newReservation}));
+        } catch (error) {
+          console.error('Error al obtener los datos:', error);
+        }
+      };
+      getTrips()
+    }
   },[token])
 
   // console.log(trips);
@@ -77,8 +109,8 @@ export const TripList = () => {
 
   return (
     <div className="grid grid-cols-auto gap-6 mt-4">
-      {tripsList.length > 0 ? (
-        tripsList.map((trip) => <TripCard key={trip.price} trip={trip} />)
+      {trips.length > 0 ? (
+        trips.map((trip) => <TripCard key={trip.id} trip={trip} />)
       ) : (
         <p className="col-span-2">
           No hay viajes reservados. ¡todavía!
