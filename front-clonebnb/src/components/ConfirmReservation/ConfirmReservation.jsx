@@ -134,6 +134,7 @@ const ConfirmReservation = ({ detail, closeModal }) => {
 
     const response = await fetch( 'https://c14-04-m-node-react-production.up.railway.app/api/v1/reservation/createReservation', {
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token,
       },
       method: 'POST',
@@ -143,6 +144,8 @@ const ConfirmReservation = ({ detail, closeModal }) => {
     const responseJson = await response.json();
     if(responseJson.status === 0){
       setIsReservated(true)
+    } else {
+      alert("Ocurrió un error, por favor inténtelo más tarde")
     }
     
     //  if( error.endDate || error.startDate)
