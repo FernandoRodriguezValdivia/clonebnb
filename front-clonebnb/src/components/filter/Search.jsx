@@ -31,7 +31,7 @@ export const Search = () =>{
       </div>
       <input
         type="search"
-        placeholder="Search destinations"
+        placeholder="Buscar alojamientos"
         value={filter.search}
         onChange={searchFiltered}
         className="w-full h-full py-3 pl-3 text-sm outline-none focus-within:bg-opacity"

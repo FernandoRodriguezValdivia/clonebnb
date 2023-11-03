@@ -18,7 +18,7 @@ export const ButtonCategory = ({cat}) => {
   return (
     <button
       className={`min-w-max grid grid-rows-2 justify-items-center gap-2 pt-3 px-1 text-xs font-semibold hover:opacity-100 ${
-        categorySelect === cat.id ? 'opacity-100' : 'opacity-60'
+        categorySelect === cat.id ? 'opacity-100 border-b-2 border-black' : 'opacity-60'
       }`}
       type="button"
       onClick={categoryFiltered}
