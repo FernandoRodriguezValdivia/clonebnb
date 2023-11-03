@@ -22,5 +22,5 @@ body {
 
 .scroll-style::-webkit-scrollbar-thumb {
   background-color: #1f1f1f48;
-  border-radius: 8px;
+  border-radius: 2px;
 }

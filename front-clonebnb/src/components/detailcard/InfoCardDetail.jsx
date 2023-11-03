@@ -39,7 +39,7 @@ export const InfoCardDetail = ({detail})=>{
           </h3>
         </section>
         <Link href="/wishlist">
-          <button className="bg-green py-1 px-3 rounded-1xs text-white">
+          <button className="bg-green py-1 px-3 rounded-2lg text-white hover:bg-black transition duration-200 ease-linear">
             Reservar
           </button>
         </Link>

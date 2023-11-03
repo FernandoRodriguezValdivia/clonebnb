@@ -74,34 +74,31 @@ export const LoginForm = () => {
         <div className="flex flex-col items-center gap-5 w-full container max-w-sm outline outline-1 outline-opacity shadow-md rounded-1xs sm:outline-0 md:shadow-none px-5 sm:px-8 py-8">
           <h2 className="font-bold text-lg">Bienvenido a Clonebnb</h2>
           <p className="text-sm">Inicia sesión o regístrate</p>
-          <form className="grid justify-center gap-2" onSubmit={handleSubmit}>
-            <p className=" text-center text-red-400 mb-3">
-              {' '}
-              {formErrors.email}
-            </p>
-            <label htmlFor="email">
+          <form className="grid justify-center gap-6" onSubmit={handleSubmit}>
+            <label className="relative" htmlFor="email">
+              <p className="w-fit absolute -bottom-5 left-5 text-xs text-red">
+                {formErrors.email}
+              </p>
               <span className="block text-sm pl-5 font-bold">Email</span>
               <input
                 id="email"
                 type="text"
-                className="text-sm outline outline-1 outline-gray py-2 pl-5 rounded-2lg"
+                className="text-sm outline outline-1 outline-gray py-2 px-4 rounded-2lg"
                 name="email"
                 placeholder="Email"
                 value={formValues.email}
                 onChange={handleChange}
               />
             </label>
-
-            <p className=" text-center text-red-400 mb-3">
-              {' '}
-              {formErrors.password}
-            </p>
-            <label htmlFor="password">
+            <label className='relative' htmlFor="password">
+              <p className="w-fit absolute -bottom-5 left-5 text-xs text-red">
+                {formErrors.password}
+              </p>
               <span className="block text-sm pl-5 font-bold">Contraseña</span>
               <input
                 id="password"
                 type="password"
-                className="text-sm outline outline-1 outline-gray py-2 pl-5 rounded-2lg"
+                className="text-sm outline outline-1 outline-gray py-2 px-4 rounded-2lg"
                 name="password"
                 placeholder="Contraseña"
                 value={formValues.password}
@@ -111,13 +108,13 @@ export const LoginForm = () => {
 
             <button
               type="submit"
-              className="m-auto text-sm mt-7 px-4 py-2 rounded bg-green text-white rounded-2lg hover:bg-black focus:outline-none"
+              className="m-auto text-sm mt-7 px-4 py-2 rounded bg-green text-white rounded-2lg hover:bg-black transition duration-200 ease-linear"
             >
               Iniciar Sesión
             </button>
           </form>
           <span className="text-sm">
-            o{' '}
+            o 
             <Link href="/register" className="font-bold underline ml-2">
               Regístrate
             </Link>
