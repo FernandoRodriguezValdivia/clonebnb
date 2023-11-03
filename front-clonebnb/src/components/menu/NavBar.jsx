@@ -8,7 +8,7 @@ export const NavBar = async() => {
   const token = session?.user?.data?.token
 
   return (
-    <nav className="w-full fixed z-30 bg-white top-0 max-w-screen-2xl  flex flex-wrap gap-6 justify-between py-8 px-5 sm:p-8">
+    <nav className="w-full fixed z-30 bg-white top-0 max-w-screen-2xl flex justify-between gap-12 pt-6 pb-3 px-5 sm:px-8 border-b border-opacity">
       <div className="flex w-56">
         <Link href="/">
           <div>
@@ -34,7 +34,7 @@ export const NavBar = async() => {
           </div>
         </Link>
       </div>
-      <div className="flex gap-12 w-full sm:w-6/12 justify-end items-center">
+      <div className="flex w-full sm:w-6/12 justify-end items-center">
         <div>
           <UserButton/>
         </div>

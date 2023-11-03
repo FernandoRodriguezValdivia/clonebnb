@@ -19,7 +19,7 @@ export const ButtonAllCategories = () => {
   return (
     <button
       className={`grid grid-rows-2 justify-items-center gap-2 min-w-max text-center pt-3 px-1 text-xs font-semibold hover:opacity-100 ${
-        catAll === 0 ? 'opacity-100' : 'opacity-60'
+        catAll === 0 ? 'opacity-100 border-b-2 border-black' : 'opacity-60'
       }`}
       type="button"
       onClick={categoryFiltered}

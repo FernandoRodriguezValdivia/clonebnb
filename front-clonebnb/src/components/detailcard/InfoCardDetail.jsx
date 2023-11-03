@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from "react";
-//import Link from "next/link";
 import { InfoDetailServices } from "./InfoDetailServices";
 import CustomModal from "../modal/modal";
 
@@ -16,12 +15,10 @@ export const InfoCardDetail = ({detail})=>{
     setModalIsOpen(false);
   };
 
-
-
   return (
     <section className="md:w-1/2 md:min-w-[280px] grid md:justify-center gap-6 px-4 sm:pl-0">
       <div>
-        <h2 className="font-bold text-lg">{detail?.titulo}</h2>
+        <h2 className="font-bold text-lg max-w-sm">{detail?.titulo}</h2>
         <div className="flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -54,14 +51,11 @@ export const InfoCardDetail = ({detail})=>{
             <span className="text-xs font-normal">/ Noche</span>
           </h3>
         </section>
-
-    
-        
-
-
-
-          <div className="text-center mt-16">
-          <button onClick={openModal} className="bg-green py-1 px-3 rounded-2lg text-white">
+        <div className="text-center">
+          <button
+            onClick={openModal}
+            className="bg-green py-1 px-3 rounded-2lg text-white hover:bg-black transition duration-200 ease-linear"
+          >
             Reservar
           </button>
           {

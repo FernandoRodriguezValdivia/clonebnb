@@ -6,13 +6,13 @@ export const ButtonCard = ({stay})=>{
   const { removeWish, addWish} = useHousing()
   
   return (
-    <button 
+    <button
       className="absolute z-10 top-5 sm:top-2 right-2 rounded-2lg flex items-center justify-center bg-white text-brand-500 hover:cursor-pointer"
       onClick={() => {
-        if(stay?.isFavorite){
-          removeWish(stay.id)
+        if (stay?.isFavorite) {
+          removeWish(stay.id);
         } else {
-          addWish(stay.id)
+          addWish(stay.id);
         }
       }}
     >
@@ -24,10 +24,12 @@ export const ButtonCard = ({stay})=>{
           height="1em"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-8 h-8 p-1 hover:stroke-red "
+          className={`w-8 h-8 p-1 hover:stroke-red ${
+            stay?.isFavorite ? 'stroke-red' : 'stroke-black'
+          }`}
         >
           <path
-            fill={stay?.isFavorite ? 'red': 'none'}
+            fill="none"
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="32"
