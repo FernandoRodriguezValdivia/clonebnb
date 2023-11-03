@@ -218,14 +218,6 @@ const schemaReservationCreate = {
       type: 'integer',
       example: 1,
     },
-    hostId: {
-      type: 'integer',
-      example: 1,
-    },
-    visitorId: {
-      type: 'integer',
-      example: 1,
-    },
   },
 };
 

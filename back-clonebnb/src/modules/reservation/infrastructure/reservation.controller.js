@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { authorization } from '../../../middlewares/authorization.middleware.js';
 import { Reservation } from './models/Reservation.model.js';
+import { Stay } from '../../stay/infrastructure/models/Stay.model.js';
 
 export const reservationRouter = Router();
 
@@ -8,17 +9,20 @@ reservationRouter.post(
   '/createReservation',
   authorization,
   async (req, res) => {
-    const {
-      startDate,
-      endDate,
-      quantityVisitors,
-      totalPrice,
-      stayId,
-      hostId,
-      visitorId,
-    } = req.body;
+    const visitorId = Number(req.id);
+
+    const { startDate, endDate, quantityVisitors, totalPrice, stayId } =
+      req.body;
 
     try {
+      const stay = await Stay.findByPk(stayId, {
+        raw: true,
+      });
+
+      const hostId = stay?.hostId;
+
+      if (!hostId) throw new Error('Alojamiento no existe');
+
       await Reservation.create({
         startDate,
         endDate,
