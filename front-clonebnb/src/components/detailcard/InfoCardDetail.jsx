@@ -51,7 +51,7 @@ export const InfoCardDetail = ({detail})=>{
             <span className="text-xs font-normal">/ Noche</span>
           </h3>
         </section>
-        <div className="text-center mt-16">
+        <div className="text-center">
           <button
             onClick={openModal}
             className="bg-green py-1 px-3 rounded-2lg text-white hover:bg-black transition duration-200 ease-linear"
