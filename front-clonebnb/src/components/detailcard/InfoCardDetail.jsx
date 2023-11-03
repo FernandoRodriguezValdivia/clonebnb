@@ -58,8 +58,13 @@ export const InfoCardDetail = ({detail})=>{
           >
             Reservar
           </button>
-          <CustomModal isOpen={modalIsOpen} closeModal={closeModal} />
-        </div>
+          {
+            modalIsOpen &&
+            <CustomModal closeModal={closeModal} detail={detail}/>
+          }
+    </div>
+
+      
       </div>
     </section>
   );

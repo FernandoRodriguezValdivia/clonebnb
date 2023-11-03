@@ -8,7 +8,7 @@ export default function Trips(){
       <h2 className="mb-8 text-xl sm:text-3xl font-semibold">
         Historial de viajes
       </h2>
-      <p className="mb-4">Este es un ejemplo de tarjetas de reservacion</p>
+      {/* <p className="mb-4">Este es un ejemplo de tarjetas de reservacion</p> */}
       <TripList />
     </section>
   );

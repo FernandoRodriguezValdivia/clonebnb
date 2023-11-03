@@ -1,19 +1,24 @@
 export const TripCard = ({trip}) => {
-
+  
   const dateIn = trip.checkin;
   const newDate = new Date(dateIn);
   const dayName = newDate.toLocaleString('es-ES', { weekday: 'short' });
   const month = newDate.toLocaleString('es-ES', { month: 'short' });
-  const day = newDate.getDay();
+  const day = newDate.getDate();
   const year = newDate.getFullYear();
 
-  const hourIn = newDate.getHours()
-  const minutesIn = newDate.getMinutes()
-
   const dateOut = trip.checkout;
-  const outDate = new Date(dateOut);
-  const hourOut = outDate.getHours()
-  const minutesOut = outDate.getMinutes()
+  const newDateOut = new Date(dateOut);
+  const dayNameOut = newDateOut.toLocaleString('es-ES', { weekday: 'short' });
+  const monthOut = newDateOut.toLocaleString('es-ES', { month: 'short' });
+  const dayOut = newDateOut.getDate();
+  const yearOut = newDateOut.getFullYear();
+
+  const hourIn = 7
+  const minutesIn = '00'
+
+  const hourOut = 22
+  const minutesOut = '00'
 
   return (
     <div className="min-w-sm grid gap-4 items-center px-6 py-3 outline outline-1 outline-opacity shadow-md border-l-[3px] border-green">
@@ -33,7 +38,7 @@ export const TripCard = ({trip}) => {
         </div>
         <div>
           <h3 className="text-right text-xs font-semibold capitalize">
-            {dayName}, {month} {day}, {year}
+            {dayNameOut}, {monthOut} {dayOut}, {yearOut}
           </h3>
           <h3 className="text-right font-medium">
             {hourOut}:{minutesOut}{' '}
