@@ -205,7 +205,7 @@ const ConfirmReservation = ({ detail, closeModal }) => {
       
         <div className='text-sm'>Fecha de inicio</div>
         <div className='text-sm'> <input  onChange={handleChange}
-  value={formData.startDate} type="date" name="startDate" id="" /></div>
+  value={formData.startDate} type="date" name="startDate" id="" min={ new Date().toISOString().split('T')[0]}/></div>
       {
       (error.startDate.length > 0 && isSend) &&
       error.startDate.map( err => (
@@ -217,7 +217,7 @@ const ConfirmReservation = ({ detail, closeModal }) => {
 
         
         <div className='text-sm mt-3'>Fecha de salida </div>
-        <div className='text-sm mt-3'><input onChange={handleChange} required value={formData.endDate} type="date" name="endDate" id="" /></div>
+        <div className='text-sm mt-3'><input onChange={handleChange}  min={ new Date().toISOString().split('T')[0]} required value={formData.endDate} type="date" name="endDate" id="" /></div>
         {
           (error.endDate.length > 0 && isSend) &&
           error.endDate.map( err => (

@@ -13,11 +13,9 @@ export const TripList = () => {
   useEffect(()=>{
     if(token){
       function convertirFecha(fecha) {
-        // Parsea la fecha del formato "YYYY-MM-DD"
         const fechaParseada = new Date(fecha);
         fechaParseada.setDate(fechaParseada.getDate() + 1);
       
-        // Obtiene los componentes de la fecha
         const año = fechaParseada.getFullYear();
         const mes = String(fechaParseada.getMonth() + 1).padStart(2, '0'); // Mes va de 0 a 11
         const dia = String(fechaParseada.getDate()).padStart(2, '0');
@@ -25,10 +23,8 @@ export const TripList = () => {
         const minutos = String(fechaParseada.getMinutes()).padStart(2, '0');
         const segundos = String(fechaParseada.getSeconds()).padStart(2, '0');
       
-        // Obtiene el offset de zona horaria en minutos y lo convierte a horas
         const offset = -fechaParseada.getTimezoneOffset() / 60;
       
-        // Construye la cadena de fecha en el formato deseado
         const fechaFormateada = `${año}-${mes}-${dia}T${horas}:${minutos}:${segundos}.000${offset >= 0 ? '+' : '-'}${String(Math.abs(offset)).padStart(2, '0')}:00`;
       
         return fechaFormateada;
