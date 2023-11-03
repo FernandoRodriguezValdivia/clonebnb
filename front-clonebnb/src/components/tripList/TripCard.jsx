@@ -1,21 +1,20 @@
 export const TripCard = ({trip}) => {
   
-  const dateIn = trip.checkin;
+  const dateIn = trip.createdAt;
   const newDate = new Date(dateIn);
   const dayName = newDate.toLocaleString('es-ES', { weekday: 'short' });
   const month = newDate.toLocaleString('es-ES', { month: 'short' });
   const day = newDate.getDate();
   const year = newDate.getFullYear();
+  const hourIn = newDate.getHours()
+  const minutesIn = newDate.getMinutes()
 
-  const dateOut = trip.checkout;
+  const dateOut = trip.endDate;
   const newDateOut = new Date(dateOut);
   const dayNameOut = newDateOut.toLocaleString('es-ES', { weekday: 'short' });
   const monthOut = newDateOut.toLocaleString('es-ES', { month: 'short' });
   const dayOut = newDateOut.getDate();
   const yearOut = newDateOut.getFullYear();
-
-  const hourIn = 7
-  const minutesIn = '00'
 
   const hourOut = 22
   const minutesOut = '00'
@@ -48,10 +47,10 @@ export const TripCard = ({trip}) => {
       </div>
       <div className="flex justify-between items-center">
         <span className="text-xs font-medium">
-          Total: $<span className="text-base"> {trip.price}</span>
+          Total: $<span className="text-base"> {trip.totalPrice}</span>
         </span>
         <span className="text-xs font-medium">
-          Personas: <span className="text-base">{trip.persons}</span>
+          Personas: <span className="text-base">{trip.quantityVisitors}</span>
         </span>
       </div>
     </div>
